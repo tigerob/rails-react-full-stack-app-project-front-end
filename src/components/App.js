@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useReducer} from 'react';
 import '../App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import About from './About';
@@ -9,22 +9,36 @@ import Navigation from './Navigation';
 import Prices from './Prices';
 import SignUp from './SignUp';
 import PageNotFound from './PageNotFound';
+import { reducer } from '../utils/reducer'
+import { StateContext } from '../utils/stateContext';
 
 const App = () => {
+
+  const initialState = {
+    loggedInUser: ""
+  }
+
+  const [store, dispatch] = useReducer(reducer, initialState)
+  const {loggedInUser} = store
+
+
   return (
     <div>
-      <Router>
-        <Navigation />  
-        <Routes>
-          <Route path='/' element={<About />} />
-          <Route path='bookings' element={<Bookings />} />
-          <Route path='contact' element={<Contact />} />
-          <Route path='login' element={<LogIn />} />
-          <Route path='prices' element={<Prices />} />
-          <Route path='signup' element={<SignUp />} />
-          <Route path='*' element={<PageNotFound />} />
-        </Routes>
-      </Router>
+      <StateContext.Provider value ={{store, dispatch}}>
+        <Router>
+          <Navigation />  
+          <Routes>
+            <Route path='/' element={<About />} />
+            <Route path='bookings' element={<Bookings />} />
+            <Route path='contact' element={<Contact />} />
+            <Route path='login' element={<LogIn />} />
+            <Route path='prices' element={<Prices />} />
+            <Route path='signup' element={<SignUp />} />
+            <Route path='*' element={<PageNotFound />} />
+          </Routes>
+        </Router>
+      </StateContext.Provider>
+
     </div>
   );
 }

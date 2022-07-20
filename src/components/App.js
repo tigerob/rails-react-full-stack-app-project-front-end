@@ -1,7 +1,8 @@
 import React, {useReducer} from 'react';
 import '../App.css';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import About from './About';
+import BookingForm from './BookingForm';
 import Bookings from './Bookings';
 import Contact from './Contact';
 import LogIn from './LogIn';
@@ -29,7 +30,15 @@ const App = () => {
           <Navigation />  
           <Routes>
             <Route path='/' element={<About />} />
-            <Route path='bookings' element={<Bookings />} />
+            <Route path='bookings'>
+              <Route index element={<Bookings />} />
+              <Route path='new' element={
+                loggedInUser?
+                  <BookingForm />
+                  :
+                  <Navigate to="/login" />
+                } />
+            </Route>
             <Route path='contact' element={<Contact />} />
             <Route path='login' element={<LogIn />} />
             <Route path='prices' element={<Prices />} />

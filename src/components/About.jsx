@@ -1,15 +1,7 @@
-import React, { Component } from "react";
-import Image from "./Carousel";
+import React from "react";
 
-class About extends Component {
-  render() {
-    return (
-      <div>
-        <div>This is a parent component</div>
-        <Image />
-      </div>
-    );
-  }
+import Carousel from "../components/Carousel";
+
+export default function About() {
+  return <Carousel />;
 }
-
-export default About;

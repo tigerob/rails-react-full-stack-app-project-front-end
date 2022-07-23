@@ -9,6 +9,7 @@
   justify-content: space-between;
   gap: 2rem;
   padding: 0 1rem;
+  width: 100%;
 }
 
 .nav a {
@@ -18,8 +19,37 @@
   display: flex;
   align-items: center;
   padding: 1rem;
+  width: 100%;
 }
 
 .nav a:hover {
   color: silver;
+}
+
+h1.title {
+  margin: 0;
+  background-color: #333;
+  display: flex;
+  justify-content: center;
+  font-family: "Dancing Script", cursive;
+  font-size: 8vh;
+  color: rgb(255, 255, 255);
+}
+
+div.info {
+  margin: 0 10vh 0;
+  background-color: #333;
+  display: flex;
+  justify-content: space-between;
+  color: rgb(255, 255, 255);
+  font-size: medium;
+}
+
+h2.info-head {
+  margin: 10vh 10vh 0;
+  background-color: #333;
+  display: flex;
+  justify-content: center;
+  color: rgb(255, 255, 255);
+  font-size: x-large;
 }

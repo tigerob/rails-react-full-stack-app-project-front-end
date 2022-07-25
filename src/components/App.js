@@ -10,17 +10,18 @@ import About from "./About";
 import BookingForm from "./BookingForm";
 import Bookings from "./Bookings";
 import Contact from "./Contact";
-import LogIn from "./LogIn";
+import LogInForm from "./LogInForm";
 import Navigation from "./Navigation";
 import Prices from "./Prices";
-import SignUp from "./SignUp";
+import SignUp from "./SignUpForm";
 import PageNotFound from "./PageNotFound";
 import { reducer } from "../utils/reducer";
 import { StateContext } from "../utils/stateContext";
 
 const App = () => {
   const initialState = {
-    loggedInUser: "",
+    loggedInUser: sessionStorage.getItem("username") || null,
+    token: sessionStorage.getItem("token") || null
   };
 
   const [store, dispatch] = useReducer(reducer, initialState);
@@ -43,7 +44,7 @@ const App = () => {
               />
             </Route>
             <Route path="contact" element={<Contact />} />
-            <Route path="login" element={<LogIn />} />
+            <Route path="login" element={<LogInForm />} />
             <Route path="prices" element={<Prices />} />
             <Route path="signup" element={<SignUp />} />
             <Route path="*" element={<PageNotFound />} />

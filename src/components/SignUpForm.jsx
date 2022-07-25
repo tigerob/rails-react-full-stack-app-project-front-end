@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import { useNavigate } from "react-router-dom";
 import { useGlobalState } from "../utils/stateContext";
 
-const SignUp = () => {
+const SignUpForm = () => {
 
     const {dispatch} = useGlobalState()
     const navigate = useNavigate()
@@ -61,4 +61,4 @@ const SignUp = () => {
     )
 }
 
-export default SignUp
+export default SignUpForm

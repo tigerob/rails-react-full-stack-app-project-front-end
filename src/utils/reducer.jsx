@@ -12,6 +12,12 @@ export const reducer = (state, action) => {
                 loggedInUser: action.data
             }
         }
+        case "setToken": {
+            return {
+                ...state,
+                token: action.data
+            }
+        }
         default: return state
     }
 }

@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import { useNavigate } from "react-router-dom";
 import { useGlobalState } from "../utils/stateContext";
+import { signUp } from '../services/authServices';
 
 const SignUpForm = () => {
 
@@ -15,17 +16,35 @@ const SignUpForm = () => {
     }
 
     const [formData, setFormData] = useState(initialFormData)
+    const [error, setError] = useState(null)
 
     const handleSubmit = (e) =>{
         e.preventDefault()
-        console.log("submitted")
-        console.log(formData)
-        dispatch({
-            type: "setLoggedInUser",
-            data: formData.username
-        })
-        setFormData(initialFormData)
-        navigate("/bookings")
+
+        signUp(formData)
+            .then((user) => {
+                let errorMessage = "";
+                if (user.error){
+                    Object.keys(user.error).forEach(key => {
+                        errorMessage = errorMessage.concat("", `${key} ${user.error[key]}`)
+                    })
+                    setError(errorMessage)
+                } else {
+                    sessionStorage.setItem("username", user.username)
+                    sessionStorage.setItem("token", user.jwt)
+                    dispatch({
+                        type: "setLoggedInUser",
+                        data: user.username
+                    })
+                    dispatch({
+                        type: "setToken",
+                        data: user.jwt
+                    })
+                    setFormData(initialFormData)
+                    navigate("/bookings")
+                }
+            })
+        .catch(e => {console.log(e)})
     }
 
     const handleFormData = (e) => {
@@ -38,6 +57,7 @@ const SignUpForm = () => {
     return (
         <>
             <h2>Sign up</h2>
+            {error && <p>{error}</p>}
             <form onSubmit={handleSubmit}>
                 <div>
                     <label>Username:</label>

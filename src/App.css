@@ -45,11 +45,37 @@ div.info {
   font-size: medium;
 }
 
+div.price-info {
+  margin: 25vh 10vh 0;
+  background-color: #333;
+  display: flex;
+  color: rgb(255, 255, 255);
+  font-size: 2vh;
+}
+
 h2.info-head {
   margin: 10vh 10vh 0;
   background-color: #333;
   display: flex;
   justify-content: center;
+  color: rgb(255, 255, 255);
+  font-size: x-large;
+}
+
+li.info-list {
+  margin: 5vh 10vh 0;
+  background-color: #333;
+  display: flex;
+  justify-content: space-between;
+  color: rgb(255, 255, 255);
+  font-size: x-large;
+}
+
+.link-buttons {
+  margin: 0 10vh 0;
+  background-color: #333;
+  display: flex;
+  justify-content: space-between;
   color: rgb(255, 255, 255);
   font-size: x-large;
 }

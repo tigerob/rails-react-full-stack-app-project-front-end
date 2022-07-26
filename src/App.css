@@ -63,9 +63,19 @@ h2.info-head {
 }
 
 li.info-list {
-  margin: 0;
+  margin: 5vh 10vh 0;
   background-color: #333;
   display: flex;
+  justify-content: space-between;
+  color: rgb(255, 255, 255);
+  font-size: x-large;
+}
+
+.link-buttons {
+  margin: 0 10vh 0;
+  background-color: #333;
+  display: flex;
+  justify-content: space-between;
   color: rgb(255, 255, 255);
   font-size: x-large;
 }

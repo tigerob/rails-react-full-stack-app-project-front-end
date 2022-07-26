@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const AsyncAwait = () => {
   const [prices, setPrices] = useState([]);
@@ -20,18 +21,27 @@ const AsyncAwait = () => {
       </div>
       <div class="price-info"></div>
       {prices.length > 0 && (
-        <ul class="price-info">
+        <ul>
           {prices.map((price) => (
             <li class="info-list" key={price.id}>
-              <h2>{price.instrument.toUpperCase()}</h2>
-              {price.price.toLocaleString("en-AU", {
-                style: "currency",
-                currency: "AUD",
-              })}
+              <h2>
+                {price.instrument.toUpperCase()}
+                <span> : </span>
+                {price.price.toLocaleString("en-AU", {
+                  style: "currency",
+                  currency: "AUD",
+                })}
+              </h2>
             </li>
-          ))}
+          ))}{" "}
         </ul>
       )}
+      <div class="link-buttons">
+        {" "}
+        <Link to="/bookings" className="btn btn-primary">
+          Book Now
+        </Link>
+      </div>
     </div>
   );
 };

@@ -1,8 +1,10 @@
 import React, {useState} from 'react';
 import { useNavigate } from "react-router-dom";
 import { useGlobalState } from "../utils/stateContext";
+import { logIn } from '../services/authServices';
 
-const LogIn = () => {
+
+const LogInForm = () => {
 
     const {dispatch} = useGlobalState()
     const navigate = useNavigate()
@@ -13,17 +15,32 @@ const LogIn = () => {
     }
 
     const [formData, setFormData] = useState(initialFormData)
+    const [error, setError] = useState(null)
 
     const handleSubmit = (e) =>{
         e.preventDefault()
-        console.log("submitted")
-        console.log(formData)
-        dispatch({
-            type: "setLoggedInUser",
-            data: formData.email
+
+        logIn(formData)
+        .then((user) => {
+            if (user.error) {
+                console.log("user.error", user.error)
+                setError(user.error)
+            } else {
+                setError(null)
+                sessionStorage.setItem("username", user.username)
+                sessionStorage.setItem("token", user.jwt)
+                dispatch({
+                    type: "setLoggedInUser",
+                    data: user.username
+                })
+                dispatch({
+                    type: "setToken",
+                    data: user.jwt
+                })
+                setFormData(initialFormData)
+                navigate("/bookings")
+            }
         })
-        setFormData(initialFormData)
-        navigate("/bookings")
     }
 
     const handleFormData = (e) => {
@@ -36,6 +53,7 @@ const LogIn = () => {
     return (
         <>
             <h2>Log in</h2>
+            {error && <p>{error}</p>}
             <form onSubmit={handleSubmit}>
                 <div>
                     <label>Email:</label>
@@ -51,4 +69,4 @@ const LogIn = () => {
     )
 }
 
-export default LogIn
+export default LogInForm

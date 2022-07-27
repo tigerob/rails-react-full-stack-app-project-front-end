@@ -3,7 +3,8 @@ export const reducer = (state, action) => {
     switch(action.type){
         case "cleanState": {
             return {
-                loggedInUser: ""
+                loggedInUser: "",
+                bookingsList: []
             }
         }
         case "setLoggedInUser": {
@@ -16,6 +17,18 @@ export const reducer = (state, action) => {
             return {
                 ...state,
                 token: action.data
+            }
+        }
+        case "setBookingsList": {
+            return {
+                ...state,
+                bookingsList: action.data
+            }
+        }
+        case "addBooking": {
+            return {
+                ...state,
+                bookingsList: [action.data, ...state.bookingsList]
             }
         }
         default: return state

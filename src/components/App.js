@@ -38,9 +38,7 @@ const App = () => {
               <Route index element={<Bookings />} />
               <Route
                 path="new"
-                element={
-                  loggedInUser ? <BookingForm /> : <Navigate to="/login" />
-                }
+                element={loggedInUser ? <BookingForm /> : <Navigate to="/login" />}
               />
             </Route>
             <Route path="contact" element={<Contact />} />

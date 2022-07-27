@@ -6,7 +6,7 @@ export default function About() {
   return (
     <div className="About">
       <Carousel />
-      <h1 class="title">Mia's Music Studios</h1>
+      <h1 class="title">Mia Music Studios</h1>
 
       <h2 class="info-head">Info container</h2>
       <div class="info">

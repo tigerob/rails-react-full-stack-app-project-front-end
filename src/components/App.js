@@ -13,6 +13,9 @@ import Contact from "./Contact";
 import LogInForm from "./LogInForm";
 import Navigation from "./Navigation";
 import Prices from "./Prices";
+import Profile from "./Profile";
+import MyBookings from "./MyBookings";
+import Accounts from "./Accounts";
 import SignUp from "./SignUpForm";
 import PageNotFound from "./PageNotFound";
 import { reducer } from "../utils/reducer";
@@ -21,7 +24,7 @@ import { StateContext } from "../utils/stateContext";
 const App = () => {
   const initialState = {
     loggedInUser: sessionStorage.getItem("username") || null,
-    token: sessionStorage.getItem("token") || null
+    token: sessionStorage.getItem("token") || null,
   };
 
   const [store, dispatch] = useReducer(reducer, initialState);
@@ -38,10 +41,15 @@ const App = () => {
               <Route index element={<Bookings />} />
               <Route
                 path="new"
-                element={loggedInUser ? <BookingForm /> : <Navigate to="/login" />}
+                element={
+                  loggedInUser ? <BookingForm /> : <Navigate to="/login" />
+                }
               />
             </Route>
             <Route path="contact" element={<Contact />} />
+            <Route path="accounts" element={<Accounts />} />
+            <Route path="accounts/profile" element={<Profile />} />
+            <Route path="accounts/mybookings" element={<MyBookings />} />
             <Route path="login" element={<LogInForm />} />
             <Route path="prices" element={<Prices />} />
             <Route path="signup" element={<SignUp />} />

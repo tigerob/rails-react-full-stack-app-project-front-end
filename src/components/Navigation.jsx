@@ -26,11 +26,7 @@ const Navigation = () => {
       <Link to="/prices">Prices</Link>
       {!loggedInUser && <Link to="/login">Login</Link>}
       {!loggedInUser && <Link to="/signup">Sign Up</Link>}
-      {loggedInUser && (
-        <Link to="/account" onClick={handleLogout}>
-          Account
-        </Link>
-      )}
+      {loggedInUser && <Link to="/accounts">Account</Link>}
       {loggedInUser && (
         <Link to="/logout" onClick={handleLogout}>
           Logout

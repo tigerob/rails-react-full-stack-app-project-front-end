@@ -1,8 +1,13 @@
 import React, { useEffect, useState } from "react";
-// import { Link } from "react-router-dom";
+import { useGlobalState } from "../utils/stateContext";
 
 const AsyncAwait = () => {
   const [bookings, setBookings] = useState([]);
+  const { store } = useGlobalState();
+  const { loggedInUser } = store;
+  const mybookings = bookings.filter((booking) => {
+    return booking.username === loggedInUser;
+  });
 
   const fetchData = async () => {
     const response = await fetch("http://localhost:3000/bookings");
@@ -13,21 +18,21 @@ const AsyncAwait = () => {
   useEffect(() => {
     fetchData();
   }, []);
-
+  console.log(mybookings);
   return (
     <div>
       <div>
         <h1 class="title">Your Bookings</h1>
       </div>
       <div class="price-info"></div>
-      {bookings.length > 0 && (
+      {mybookings.length > 0 && (
         <ul>
-          {bookings.map((bookings) => (
-            <li class="info-list" key={bookings}>
-              <h2>Date: {bookings.date}</h2>
-              <h2>Time:{bookings.time}</h2>
-              <h2>Location: {bookings.location}</h2>
-              <h2>Instrument: {bookings.instrument}</h2>
+          {mybookings.map((mybookings) => (
+            <li class="info-list" key={mybookings}>
+              <p>Date: {mybookings.date}</p>
+              <p>Time: {mybookings.time}</p>
+              <p>Location: {mybookings.location}</p>
+              <p>Instrument: {mybookings.instrument}</p>
             </li>
           ))}
         </ul>

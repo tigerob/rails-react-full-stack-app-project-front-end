@@ -7,16 +7,23 @@ const Bookings = () => {
     const {store} = useGlobalState()
     const {loggedInUser} = store
 
-    return (
-        <>
-            <h2>Bookings</h2>
-            <p>Developer note: The current user is:</p>
-            { loggedInUser && <p>{loggedInUser}</p> }
-            <Link to="/bookings/new">Make new booking</Link>
-            <p>View all upcoming and past bookings in:</p>
-            <Link to="/account">Account</Link>
-        </>
-    )
+    if (loggedInUser) {
+        return (
+            <>
+                <h2>Bookings</h2>
+                <h3>Hello, {loggedInUser}</h3>
+                <p>Click {<Link to="/bookings/new">here</Link>} to make a new booking</p>
+                <p>View all upcoming and past bookings in: {<Link to="/accounts">Account</Link>}</p>
+            </>
+        )
+    } else {
+        return (
+            <>
+                <h2>Bookings</h2>
+                <p>Log in or sign up to make a booking</p>
+            </>
+        )
+    }
 }
 
 export default Bookings

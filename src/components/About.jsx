@@ -5,9 +5,8 @@ import Carousel from "../components/Carousel";
 export default function About() {
   return (
     <div className="About">
-      <Carousel />
       <h1 class="title">Mia Music Studios</h1>
-
+      <Carousel class="carousel" />
       <h2 class="info-head">Info container</h2>
       <div class="info">
         <p>

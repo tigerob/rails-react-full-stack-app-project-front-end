@@ -67,7 +67,7 @@ export default function Carousel() {
 
   return (
     <div className="content">
-      <Slider {...sliderSettings}>
+      <Slider {...sliderSettings} class="slider">
         {Images.map((card, index) => (
           <div key={index}>
             <img

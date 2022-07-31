@@ -24,6 +24,7 @@ const Navigation = () => {
       <Link to="/">Home</Link>
       <Link to="/bookings">Bookings</Link>
       <Link to="/prices">Prices</Link>
+      <Link to="/contact">Contact</Link>
       {!loggedInUser && <Link to="/login">Login</Link>}
       {!loggedInUser && <Link to="/signup">Sign Up</Link>}
       {loggedInUser && <Link to="/accounts">Account</Link>}

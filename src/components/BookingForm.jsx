@@ -91,7 +91,7 @@ const BookingForm = () => {
               type="radio"
               name="location"
               id="location"
-              value="studio"
+              value="Studio"
               onChange={handleFormData}
             />
             Studio
@@ -101,7 +101,7 @@ const BookingForm = () => {
               type="radio"
               name="location"
               id="location"
-              value="online"
+              value="Online"
               onChange={handleFormData}
             />
             Online
@@ -114,7 +114,7 @@ const BookingForm = () => {
               type="radio"
               name="instrument"
               id="instrument"
-              value="guitar"
+              value="Guitar"
               onChange={handleFormData}
             />
             Guitar
@@ -124,7 +124,7 @@ const BookingForm = () => {
               type="radio"
               name="instrument"
               id="instrument"
-              value="piano"
+              value="Piano"
               onChange={handleFormData}
             />
             Piano
@@ -134,7 +134,7 @@ const BookingForm = () => {
               type="radio"
               name="instrument"
               id="instrument"
-              value="voice"
+              value="Voice"
               onChange={handleFormData}
             />
             Voice

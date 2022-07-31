@@ -53,9 +53,9 @@ const AsyncAwait = () => {
       },
       body: JSON.stringify(booking),
     });
+    window.location.reload();
   }
 
-  console.log(mybookings);
   return (
     <>
       <div>
@@ -65,6 +65,7 @@ const AsyncAwait = () => {
         {mybookings.length > 0 && (
           <table border="1" style={{ float: "left" }}>
             <tr>
+              <th>Student</th>
               <th>Date</th>
               <th>Time</th>
               <th>Location</th>
@@ -74,6 +75,7 @@ const AsyncAwait = () => {
             <tbody>
               {mybookings.map((booking) => (
                 <tr>
+                  <td>{booking.username}</td>
                   <td>{booking.date}</td>
                   <td>{booking.time}</td>
                   <td>{booking.location}</td>

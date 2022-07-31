@@ -18,6 +18,14 @@ const AsyncAwait = () => {
   useEffect(() => {
     fetchData();
   }, []);
+
+  function deleteBooking(id) {
+    fetch(`http://localhost:3000/bookings/${id}`, {
+      method: "DELETE",
+    });
+    setBookings(bookings.filter((booking) => booking.id !== id));
+  }
+
   console.log(mybookings);
   return (
     <div>
@@ -33,6 +41,9 @@ const AsyncAwait = () => {
               <p>Time: {mybookings.time}</p>
               <p>Location: {mybookings.location}</p>
               <p>Instrument: {mybookings.instrument}</p>
+              <button onClick={() => deleteBooking(mybookings.id)}>
+                Delete
+              </button>
             </li>
           ))}
         </ul>

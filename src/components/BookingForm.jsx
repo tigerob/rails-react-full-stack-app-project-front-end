@@ -1,12 +1,10 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { useGlobalState } from "../utils/stateContext";
 import { createBooking } from "../services/bookingsServices";
 
 const BookingForm = () => {
   const { store, dispatch } = useGlobalState();
   const { loggedInUser } = store;
-  const navigate = useNavigate();
   const initialFormData = {
     username: `${loggedInUser}`,
     time: "",
@@ -31,6 +29,8 @@ const BookingForm = () => {
     } else {
       console.log(formData);
       addBooking(formData);
+      window.location.reload();
+      window.location.href = "/accounts/mybookings";
     }
   };
 
@@ -47,7 +47,6 @@ const BookingForm = () => {
         type: "addBooking",
         data: booking,
       });
-      navigate("/bookings");
     });
   };
 

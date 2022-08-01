@@ -5,7 +5,6 @@ import { useGlobalState } from "../utils/stateContext";
 const Accounts = () => {
   const { store } = useGlobalState();
   const { loggedInUser } = store;
-
   let admin = sessionStorage.getItem("is_admin");
 
   if (admin === "true") {
@@ -17,10 +16,10 @@ const Accounts = () => {
             <Link to="/accounts/mybookings">View All Bookings</Link>
           </div>
           <div>
-            <Link to="/accounts/mybookings">Change Prices</Link>
+            <Link to="/prices">Change Prices</Link>
           </div>
           <div>
-            <Link to="/accounts/mybookings">Make User Admin</Link>
+            <Link to="/accounts/users">Make User Admin</Link>
           </div>
         </div>
       </div>

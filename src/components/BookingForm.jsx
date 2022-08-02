@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useGlobalState } from "../utils/stateContext";
 import { createBooking } from "../services/bookingsServices";
+import Select from "react-select";
 
 const BookingForm = () => {
   const { store, dispatch } = useGlobalState();
@@ -13,6 +14,18 @@ const BookingForm = () => {
     instrument: "",
   };
   const [formData, setFormData] = useState(initialFormData);
+  const [selectedOption, setSelectedOption] = useState(null);
+  const timeOptions = [
+    { value: "09:00", label: "9:00 am" },
+    { value: "10:00", label: "10:00 am" },
+    { value: "11:00", label: "11:00 am" },
+    { value: "12:00", label: "12:00 pm" },
+    { value: "13:00", label: "1:00 pm" },
+    { value: "14:00", label: "2:00 pm" },
+    { value: "15:00", label: "3:00 pm" },
+    { value: "16:00", label: "4:00 pm" },
+    { value: "17:00", label: "5:00 pm" },
+  ];
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -29,8 +42,8 @@ const BookingForm = () => {
     } else {
       console.log(formData);
       addBooking(formData);
-      window.location.reload();
-      window.location.href = "/accounts/mybookings";
+      // window.location.reload();
+      // window.location.href = "/accounts/mybookings";
     }
   };
 
@@ -40,6 +53,7 @@ const BookingForm = () => {
       [e.target.id]: e.target.value,
     });
   };
+  console.log(formData);
 
   const addBooking = (data) => {
     createBooking(data).then((booking) => {
@@ -61,22 +75,29 @@ const BookingForm = () => {
             id="username"
             value={loggedInUser}
             onChange={handleFormData}
+            placeholder="Choose a time"
           />
         </div>
         <div>
           <label htmlFor="time">Time:</label>
-          <input
-            type="time"
-            name="time"
-            id="time"
-            value={formData.time}
-            onChange={handleFormData}
+          <Select
+            defultValue={selectedOption}
+            options={timeOptions}
+            placeholder="Choose a time"
+            onChange={(selectedOption) => {
+              setSelectedOption(selectedOption);
+              setFormData({
+                ...formData,
+                time: selectedOption.value,
+              });
+            }}
           />
         </div>
         <div>
           <label htmlFor="date">Date:</label>
           <input
             type="date"
+            inputFormat="dd/MM/yyyy"
             name="date"
             id="date"
             value={formData.date}

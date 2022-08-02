@@ -5,7 +5,7 @@ const AsyncAwait = () => {
   const [bookings, setBookings] = useState([]);
   const { store } = useGlobalState();
   const { loggedInUser } = store;
-  const mybookings = bookings.filter((booking) => {
+  let mybookings = bookings.filter((booking) => {
     return booking.username === loggedInUser;
   });
   const [user_id, setUser_id] = useState(null);
@@ -15,7 +15,13 @@ const AsyncAwait = () => {
   const [time, setTime] = useState();
   const [location, setLocation] = useState();
   const [instrument, setInstrument] = useState();
+  let admin = sessionStorage.getItem("is_admin");
+  const editBooking = () => setShowResults(true);
+  const [showResults, setShowResults] = React.useState(false);
 
+  if (admin === "true") {
+    mybookings = bookings;
+  }
   const fetchData = async () => {
     const response = await fetch("http://localhost:3000/bookings");
     const data = await response.json();
@@ -81,7 +87,10 @@ const AsyncAwait = () => {
                   <td>{booking.location}</td>
                   <td>{booking.instrument}</td>
                   <td>
-                    <button onClick={() => selectBooking(booking.id)}>
+                    <button
+                      onClick={() => selectBooking(booking.id, { editBooking })}
+                    >
+                      {showResults ? <return /> : null}
                       Edit
                     </button>
                     <button onClick={() => deleteBooking(booking.id)}>
@@ -93,95 +102,98 @@ const AsyncAwait = () => {
             </tbody>
           </table>
         )}
-        <input type="hidden" value={user_id} />
-        <input type="hidden" value={username} />
-        <input type="hidden" value={id} />
-        <input
-          type="date"
-          value={date}
-          onChange={(e) => {
-            setDate(e.target.value);
-          }}
-        />
-        <br></br>
-        <input
-          type="time"
-          value={time}
-          onChange={(e) => {
-            setTime(e.target.value);
-          }}
-        />
-        <br></br>
-        <label>Location:</label>
-        <label htmlFor="location">
+        <div id="edit_form">
+          <h1>Update booking</h1>
+          <input type="hidden" value={user_id} />
+          <input type="hidden" value={username} />
+          <input type="hidden" value={id} />
           <input
-            type="radio"
-            name="location"
-            id="location"
-            checked={location === "Studio"}
-            value="Studio"
+            type="date"
+            value={date}
             onChange={(e) => {
-              setLocation(e.target.value);
+              setDate(e.target.value);
             }}
           />
-          Studio
-        </label>
-        <label htmlFor="location">
+          <br></br>
           <input
-            type="radio"
-            name="location"
-            id="location"
-            checked={location === "Online"}
-            value="Online"
+            type="time"
+            value={time}
             onChange={(e) => {
-              setLocation(e.target.value);
+              setTime(e.target.value);
             }}
           />
-          Online
-        </label>
-        <br></br>
-        <label>Instrument:</label>
-        <label htmlFor="instrument">
-          <input
-            type="radio"
-            name="instrument"
-            id="instrument"
-            value="Guitar"
-            checked={instrument === "Guitar"}
-            onChange={(e) => {
-              setInstrument(e.target.value);
-            }}
-          />
-          Guitar
-        </label>
-        <label htmlFor="instrument">
-          <input
-            type="radio"
-            name="instrument"
-            id="instrument"
-            value="Piano"
-            checked={instrument === "Piano"}
-            onChange={(e) => {
-              setInstrument(e.target.value);
-            }}
-          />
-          Piano
-        </label>
-        <label htmlFor="instrument">
-          <input
-            type="radio"
-            name="instrument"
-            id="instrument"
-            value="Voice"
-            checked={instrument === "Voice"}
-            onChange={(e) => {
-              setInstrument(e.target.value);
-            }}
-          />
-          Voice
-        </label>
-        <br></br>
-        <button onClick={updateBooking}> Edit Booking </button>
+          <br></br>
+          <label>Location:</label>
+          <label htmlFor="location">
+            <input
+              type="radio"
+              name="location"
+              id="location"
+              checked={location === "Studio"}
+              value="Studio"
+              onChange={(e) => {
+                setLocation(e.target.value);
+              }}
+            />
+            Studio
+          </label>
+          <label htmlFor="location">
+            <input
+              type="radio"
+              name="location"
+              id="location"
+              checked={location === "Online"}
+              value="Online"
+              onChange={(e) => {
+                setLocation(e.target.value);
+              }}
+            />
+            Online
+          </label>
+          <br></br>
+          <label>Instrument:</label>
+          <label htmlFor="instrument">
+            <input
+              type="radio"
+              name="instrument"
+              id="instrument"
+              value="Guitar"
+              checked={instrument === "Guitar"}
+              onChange={(e) => {
+                setInstrument(e.target.value);
+              }}
+            />
+            Guitar
+          </label>
+          <label htmlFor="instrument">
+            <input
+              type="radio"
+              name="instrument"
+              id="instrument"
+              value="Piano"
+              checked={instrument === "Piano"}
+              onChange={(e) => {
+                setInstrument(e.target.value);
+              }}
+            />
+            Piano
+          </label>
+          <label htmlFor="instrument">
+            <input
+              type="radio"
+              name="instrument"
+              id="instrument"
+              value="Voice"
+              checked={instrument === "Voice"}
+              onChange={(e) => {
+                setInstrument(e.target.value);
+              }}
+            />
+            Voice
+          </label>
+          <br></br>
+          <button onClick={updateBooking}> Edit Booking </button>
+        </div>
       </div>
     </>
   );

@@ -50,9 +50,9 @@ const LogInForm = () => {
   };
   return (
     <>
-      <h2>Log in</h2>
+      <h1 class="title">Log in</h1>
       {error && <p>{error}</p>}
-      <form onSubmit={handleSubmit}>
+      <form class="form" onSubmit={handleSubmit}>
         <div>
           <label>Email:</label>
           <input

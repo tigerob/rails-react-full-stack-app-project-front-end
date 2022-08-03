@@ -195,3 +195,12 @@ li.info-list {
 .slick-list {
   z-index: -1;
 }
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  gap: 2rem;
+  padding: 2rem 2rem;
+  width: 30rem;
+}

@@ -1,3 +1,4 @@
+import "../tests/setupTests";
 import Slider from "react-slick";
 
 import "slick-carousel/slick/slick.css";

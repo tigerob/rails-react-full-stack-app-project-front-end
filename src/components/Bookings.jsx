@@ -10,7 +10,7 @@ const Bookings = () => {
   if (loggedInUser) {
     return (
       <>
-        <h2>Bookings</h2>
+        <h1 class="title">Bookings</h1>
         <h3>Hello, {loggedInUser}</h3>
         <p>
           Click {<Link to="/bookings/new">here</Link>} to make a new booking
@@ -24,7 +24,7 @@ const Bookings = () => {
   } else {
     return (
       <>
-        <h2>Bookings</h2>
+        <h1 class="title">Bookings</h1>
         <p>Log in or sign up to make a booking</p>
       </>
     );

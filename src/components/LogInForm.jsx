@@ -54,7 +54,7 @@ const LogInForm = () => {
       {error && <p>{error}</p>}
       <form class="form" onSubmit={handleSubmit}>
         <div>
-          <label>Email:</label>
+          <label>Email:  </label>
           <input
             type="email"
             name="email"
@@ -64,7 +64,7 @@ const LogInForm = () => {
           />
         </div>
         <div>
-          <label htmlFor="password">Password:</label>
+          <label htmlFor="password">Password: </label>
           <input
             type="password"
             name="password"

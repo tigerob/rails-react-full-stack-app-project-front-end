@@ -12,7 +12,7 @@ https://github.com/Don-Heal/Mia_Music_Rails_Api
 
 https://github.com/Don-Heal/Mia_Music_React
 
-                                                        * * * 
+                                                    *  *  * 
 
 # Documentation Presented For T3A2-A
 

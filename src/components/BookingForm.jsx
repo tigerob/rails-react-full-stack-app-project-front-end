@@ -54,8 +54,6 @@ const BookingForm = () => {
     return day !== 0 && day !== 6;
   };
 
-  console.log(timesOptionsfiltered);
-
   useEffect(() => {
     fetchData();
   }, []);
@@ -73,7 +71,6 @@ const BookingForm = () => {
         "One or more fields left blank. Please complete all fields to make booking.",
       );
     } else {
-      console.log(formData);
       addBooking(formData);
       window.location.reload();
       window.location.href = "/accounts/mybookings";
@@ -99,7 +96,7 @@ const BookingForm = () => {
   return (
     <div>
       <>
-        <p>{`This booking is for`}</p>
+        <p>{`This booking is for ${loggedInUser}`}</p>
         <form onSubmit={handleSubmit}>
           <div>
             <input
@@ -129,6 +126,7 @@ const BookingForm = () => {
           <div>
             <label htmlFor="time">Time:</label>
             <Select
+              isDisabled={true && !startDate}
               defultValue={selectedOption}
               options={timesOptionsfiltered}
               placeholder="Choose a time"

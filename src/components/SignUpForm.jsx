@@ -59,49 +59,58 @@ const SignUpForm = () => {
     <>
       <h1 class="title">Sign up</h1>
       {error && <p>{error}</p>}
-      <form class="form" onSubmit={handleSubmit}>
-        <div>
-          <label>Username: </label>
-          <input
-            type="text"
-            name="username"
-            id="username"
-            value={formData.username}
-            onChange={handleFormData}
-          />
-        </div>
-        <div>
-          <label>Email: </label>
-          <input
-            type="email"
-            name="email"
-            id="email"
-            value={formData.email}
-            onChange={handleFormData}
-          />
-        </div>
-        <div>
-          <label htmlFor="password">Password: </label>
-          <input
-            type="password"
-            name="password"
-            id="password"
-            value={formData.password}
-            onChange={handleFormData}
-          />
-        </div>
-        <div>
-          <label htmlFor="password">Password confirmation: </label>
-          <input
-            type="password"
-            name="password_confirmation"
-            id="password_confirmation"
-            value={formData.password_confirmation}
-            onChange={handleFormData}
-          />
-        </div>
-        <input type="submit" value="Sign up" />
-      </form>
+      <div class="info-head">
+        <br></br>
+        <br></br>
+        <br></br>
+      </div>
+      <div class="info">
+        <form class="form" onSubmit={handleSubmit}>
+          <div>
+            <label>Username: </label>
+            <input
+              type="text"
+              name="username"
+              id="username"
+              value={formData.username}
+              onChange={handleFormData}
+            />
+          </div>
+          <div>
+            <label>Email: </label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              value={formData.email}
+              onChange={handleFormData}
+            />
+          </div>
+          <div>
+            <label htmlFor="password">Password: </label>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              value={formData.password}
+              onChange={handleFormData}
+            />
+          </div>
+          <div>
+            <label htmlFor="password">Password confirmation: </label>
+            <input
+              type="password"
+              name="password_confirmation"
+              id="password_confirmation"
+              value={formData.password_confirmation}
+              onChange={handleFormData}
+            />
+          </div>
+          <buton class="button">
+            <input class="links" type="submit" value="Sign up" />
+          </buton>
+        </form>
+      </div>
     </>
   );
 };

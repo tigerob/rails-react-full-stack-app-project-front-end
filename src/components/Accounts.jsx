@@ -10,16 +10,27 @@ const Accounts = () => {
   if (admin === "true") {
     return (
       <div>
-        <h1>Welcome {loggedInUser && <p>{loggedInUser}</p>} </h1>
+        <h1 class="title">Welcome {loggedInUser && <p>{loggedInUser}</p>} </h1>
         <div>
-          <div>
-            <Link to="/accounts/mybookings">View All Bookings</Link>
-          </div>
-          <div>
-            <Link to="/prices">Change Prices</Link>
-          </div>
-          <div>
-            <Link to="/accounts/users">Make User Admin</Link>
+          <h2 class="info-head">
+            What would you<br></br>like to do?
+          </h2>
+          <div class="info">
+            <button class="button">
+              <Link class="links" to="/accounts/mybookings">
+                View All Bookings
+              </Link>
+            </button>
+            <button class="button">
+              <Link class="links" to="/prices">
+                Change Prices
+              </Link>
+            </button>
+            <button class="button">
+              <Link class="links" to="/accounts/users">
+                Make User Admin
+              </Link>
+            </button>
           </div>
         </div>
       </div>
@@ -27,13 +38,23 @@ const Accounts = () => {
   } else {
     return (
       <div>
-        <h1>Welcome {loggedInUser && <p>{loggedInUser}</p>} </h1>
+        <h1 class="title">Welcome {loggedInUser && <p>{loggedInUser}</p>} </h1>
         <div>
-          <div>
-            <Link to="/accounts/mybookings">View your Bookings</Link>
-          </div>
-          <div>
-            <Link to="/accounts/mybookings">Change Your Details</Link>
+          <h2 class="info-head">
+            What would you<br></br>like to do?
+          </h2>
+          <div class="info">
+            <button class="button">
+              <Link class="links" to="/accounts/mybookings">
+                View your Bookings
+              </Link>
+            </button>
+            <br></br>
+            <button class="button">
+              <Link class="links" to="/accounts/mybookings">
+                Change Your Details
+              </Link>
+            </button>
           </div>
         </div>
       </div>

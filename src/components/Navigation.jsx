@@ -17,6 +17,7 @@ const Navigation = () => {
       type: "setToken",
       data: null,
     });
+    alert(" You have logged out successfully");
   };
 
   return (
@@ -43,7 +44,7 @@ const Navigation = () => {
             <li>{loggedInUser && <Link to="/accounts">Account</Link>}</li>
             <li>
               {loggedInUser && (
-                <Link to="/logout" onClick={handleLogout}>
+                <Link to="/" onClick={handleLogout}>
                   Logout
                 </Link>
               )}
@@ -62,7 +63,7 @@ const Navigation = () => {
         {!loggedInUser && <Link to="/signup">Sign Up</Link>}
         {loggedInUser && <Link to="/accounts">Account</Link>}
         {loggedInUser && (
-          <Link to="/logout" onClick={handleLogout}>
+          <Link to="/" onClick={handleLogout}>
             Logout
           </Link>
         )}

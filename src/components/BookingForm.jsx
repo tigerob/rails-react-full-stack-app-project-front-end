@@ -94,112 +94,122 @@ const BookingForm = () => {
   };
 
   return (
-    <div>
-      <>
-        <p>{`This booking is for ${loggedInUser}`}</p>
-        <form onSubmit={handleSubmit}>
-          <div>
-            <input
-              type="hidden"
-              name="username"
-              id="username"
-              value={loggedInUser}
-              onChange={handleFormData}
-              placeholder="Choose a time"
-            />
-          </div>
-          <div>
-            <label htmlFor="date">Date:</label>
-            <DatePicker
-              id="date"
-              selected={startDate}
-              placeholderText="Select a weekday"
-              onChange={(date) => {
-                setStartDate(date);
-                setFormData({
-                  ...formData,
-                  date: date.toString().slice(0, 15),
-                });
-              }}
-              filterDate={(date) => isWeekday(date)}
-            />
-          </div>
-          <div>
-            <label htmlFor="time">Time:</label>
-            <Select
-              isDisabled={true && !startDate}
-              defultValue={selectedOption}
-              options={timesOptionsfiltered}
-              placeholder="Choose a time"
-              onChange={(selectedOption) => {
-                setSelectedOption(selectedOption);
-                setFormData({
-                  ...formData,
-                  time: selectedOption.value,
-                });
-              }}
-            />
-          </div>
-          <div>
-            <label>Location:</label>
-            <label htmlFor="location">
+    <>
+      <div className="About">
+        <h1 class="title">Booking Form</h1>
+      </div>
+      <div class="form-style-5">
+        <>
+          <p class="info">{`This booking is for ${loggedInUser}`}</p>
+          <form onSubmit={handleSubmit}>
+            <div>
               <input
-                type="radio"
-                name="location"
-                id="location"
-                value="Studio"
+                type="hidden"
+                name="username"
+                id="username"
+                value={loggedInUser}
                 onChange={handleFormData}
+                placeholder="Choose a time"
               />
-              Studio
-            </label>
-            <label htmlFor="location">
-              <input
-                type="radio"
-                name="location"
-                id="location"
-                value="Online"
-                onChange={handleFormData}
+            </div>
+            <div>
+              <label htmlFor="date">Date:</label>
+              <DatePicker
+                id="date"
+                selected={startDate}
+                placeholderText="Select a weekday"
+                onChange={(date) => {
+                  setStartDate(date);
+                  setFormData({
+                    ...formData,
+                    date: date.toString().slice(0, 15),
+                  });
+                }}
+                filterDate={(date) => isWeekday(date)}
               />
-              Online
-            </label>
-          </div>
-          <div>
-            <label>Instrument:</label>
-            <label htmlFor="instrument">
-              <input
-                type="radio"
-                name="instrument"
-                id="instrument"
-                value="Guitar"
-                onChange={handleFormData}
+            </div>
+            <div>
+              <br></br>
+              <label htmlFor="time">Time:</label>
+              <Select
+                isDisabled={true && !startDate}
+                defultValue={selectedOption}
+                options={timesOptionsfiltered}
+                placeholder="Choose a time"
+                onChange={(selectedOption) => {
+                  setSelectedOption(selectedOption);
+                  setFormData({
+                    ...formData,
+                    time: selectedOption.value,
+                  });
+                }}
               />
-              Guitar
-            </label>
-            <label htmlFor="instrument">
-              <input
-                type="radio"
-                name="instrument"
-                id="instrument"
-                value="Piano"
-                onChange={handleFormData}
-              />
-              Piano
-            </label>
-            <label htmlFor="instrument">
-              <input
-                type="radio"
-                name="instrument"
-                id="instrument"
-                value="Voice"
-                onChange={handleFormData}
-              />
-              Voice
-            </label>
-          </div>
-          <input type="submit" value="Make booking" />
-        </form>
-      </>
-    </div>
+            </div>
+            <div>
+              <br></br>
+              <label>Location:</label>
+              <label htmlFor="location">
+                <input
+                  type="radio"
+                  name="location"
+                  id="location"
+                  value="Studio"
+                  onChange={handleFormData}
+                />
+                Studio
+              </label>
+              <label htmlFor="location">
+                <input
+                  type="radio"
+                  name="location"
+                  id="location"
+                  value="Online"
+                  onChange={handleFormData}
+                />
+                Online
+              </label>
+            </div>
+            <div>
+              <br></br>
+              <label>Instrument:</label>
+              <label htmlFor="instrument">
+                <input
+                  type="radio"
+                  name="instrument"
+                  id="instrument"
+                  value="Guitar"
+                  onChange={handleFormData}
+                />
+                Guitar
+              </label>
+              <label htmlFor="instrument">
+                <input
+                  type="radio"
+                  name="instrument"
+                  id="instrument"
+                  value="Piano"
+                  onChange={handleFormData}
+                />
+                Piano
+              </label>
+              <label htmlFor="instrument">
+                <input
+                  type="radio"
+                  name="instrument"
+                  id="instrument"
+                  value="Voice"
+                  onChange={handleFormData}
+                />
+                Voice
+              </label>
+            </div>
+            <button class="button">
+              <input type="submit" value="Make booking" />
+            </button>
+          </form>
+        </>
+      </div>
+    </>
   );
 };
 

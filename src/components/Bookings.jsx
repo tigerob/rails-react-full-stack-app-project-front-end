@@ -9,17 +9,23 @@ const Bookings = () => {
 
   if (loggedInUser) {
     return (
-      <>
+      <div>
         <h1 class="title">Bookings</h1>
-        <h3>Hello, {loggedInUser}</h3>
-        <p>
-          Click {<Link to="/bookings/new">here</Link>} to make a new booking
-        </p>
-        <p>
-          View all upcoming and past bookings in:{" "}
-          {<Link to="/accounts">Account</Link>}
-        </p>
-      </>
+
+        <div class="info">
+          <h2>Hello, {loggedInUser} would you like to</h2>
+          <button class="button">
+            <Link class="links" to="/bookings/new">
+              Make a Booking
+            </Link>
+          </button>
+          <button class="button">
+            <Link class="links" to="/accounts/mybookings">
+              View your Bookings
+            </Link>
+          </button>
+        </div>
+      </div>
     );
   } else {
     return (

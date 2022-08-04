@@ -60,6 +60,7 @@ const MyBookings = () => {
       body: JSON.stringify(booking),
     });
     window.location.reload();
+    alert("Booking updated");
   }
 
   return (
@@ -69,7 +70,7 @@ const MyBookings = () => {
           <h1 class="title">Your Bookings</h1>
         </div>
         {mybookings.length > 0 && (
-          <table border="1" style={{ float: "left" }}>
+          <table class="styled-table">
             <tr>
               <th>Student</th>
               <th>Date</th>
@@ -88,13 +89,17 @@ const MyBookings = () => {
                   <td>{booking.instrument}</td>
                   <td>
                     <button
+                      class="button"
                       onClick={() => selectBooking(booking.id, { editBooking })}
                     >
                       {showResults ? <return /> : null}
-                      Edit
+                      <p class="links">Edit</p>
                     </button>
-                    <button onClick={() => deleteBooking(booking.id)}>
-                      Delete
+                    <button
+                      class="button"
+                      onClick={() => deleteBooking(booking.id)}
+                    >
+                      <p class="links">Delete</p>
                     </button>
                   </td>
                 </tr>
@@ -102,7 +107,7 @@ const MyBookings = () => {
             </tbody>
           </table>
         )}
-        <div id="edit_form">
+        <div class="form-style-5">
           <h1>Update Booking</h1>
           <input type="hidden" value={user_id} />
           <input type="hidden" value={username} />
@@ -192,7 +197,9 @@ const MyBookings = () => {
             Voice
           </label>
           <br></br>
-          <button onClick={updateBooking}> Edit Booking </button>
+          <button class="button" onClick={updateBooking}>
+            <p class="links">Edit Booking</p>
+          </button>
         </div>
       </div>
     </>

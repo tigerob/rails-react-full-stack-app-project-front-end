@@ -51,29 +51,40 @@ const LogInForm = () => {
     <>
       <h1 class="title">Log in</h1>
       {error && <p>{error}</p>}
-      <form class="form" onSubmit={handleSubmit}>
-        <div>
-          <label>Email: </label>
-          <input
-            type="email"
-            name="email"
-            id="email"
-            value={formData.email}
-            onChange={handleFormData}
-          />
-        </div>
-        <div>
-          <label htmlFor="password">Password: </label>
-          <input
-            type="password"
-            name="password"
-            id="password"
-            value={formData.password}
-            onChange={handleFormData}
-          />
-        </div>
-        <input type="submit" value="Log in" />
-      </form>
+      <div class="form-style-5">
+        <br></br>
+        <br></br>
+        <br></br>
+      </div>
+      <div class="info">
+        <form onSubmit={handleSubmit}>
+          <div>
+            <label>Email: </label>
+            <br></br>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              value={formData.email}
+              onChange={handleFormData}
+            />
+          </div>
+          <div>
+            <label htmlFor="password">Password: </label>
+            <br></br>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              value={formData.password}
+              onChange={handleFormData}
+            />
+          </div>
+          <buton class="button">
+            <input type="submit" value="Log In" />
+          </buton>
+        </form>
+      </div>
     </>
   );
 };

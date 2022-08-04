@@ -28,6 +28,7 @@ const AsyncAwait = () => {
       body: JSON.stringify(newprice),
     });
     window.location.reload();
+    alert("Price updated");
   }
   console.log(prices);
 
@@ -43,7 +44,7 @@ const AsyncAwait = () => {
         <div class="price-info"></div>
         {prices.length > 0 && (
           <>
-            <table border="1" style={{ float: "left" }}>
+            <table class="styled-table">
               <tr>
                 <th>Instrument</th>
                 <th>Current Price</th>
@@ -52,7 +53,7 @@ const AsyncAwait = () => {
               <tbody>
                 {prices.map((price) => (
                   <tr>
-                    <td>{price.instrument}</td>
+                    <td>{price.instrument.toUpperCase()}</td>
                     <td>
                       {price.price.toLocaleString("en-AU", {
                         style: "currency",
@@ -60,23 +61,33 @@ const AsyncAwait = () => {
                       })}
                     </td>
                     <td>
-                      <button onClick={() => selectPrice(price.id)}>
-                        Edit
+                      <button
+                        onClick={() => selectPrice(price.id)}
+                        class="button"
+                      >
+                        <p class="links">Edit</p>
                       </button>
                     </td>
                   </tr>
                 ))}
               </tbody>
             </table>
-            <input type="hidden" value={id} />
-            <input
-              type="text"
-              value={price}
-              onChange={(e) => {
-                setPrice(e.target.value);
-              }}
-            />
-            <button onClick={updatePrice}> Edit Booking </button>
+            <div class="info">
+              <h2>Update Price</h2>
+              <input type="hidden" value={id} />
+              <input
+                type="text"
+                value={price}
+                onChange={(e) => {
+                  setPrice(e.target.value);
+                }}
+              />
+              <div>
+                <button onClick={updatePrice} class="button">
+                  <p class="links">Update Price</p>
+                </button>
+              </div>
+            </div>
           </>
         )}
       </div>
@@ -89,26 +100,32 @@ const AsyncAwait = () => {
         </div>
         <div class="price-info"></div>
         {prices.length > 0 && (
-          <ul>
-            {prices.map((price) => (
-              <li class="info-list" key={price.id}>
-                <h2>
-                  {price.instrument.toUpperCase()}
-                  <span> : </span>
-                  {price.price.toLocaleString("en-AU", {
-                    style: "currency",
-                    currency: "AUD",
-                  })}
-                </h2>
-              </li>
-            ))}{" "}
-          </ul>
+          <table class="styled-table">
+            <tr>
+              <th>Instrument</th>
+              <th>Current Price</th>
+            </tr>
+            <tbody>
+              {prices.map((price) => (
+                <tr>
+                  <td>{price.instrument.toUpperCase()}</td>
+                  <td>
+                    {price.price.toLocaleString("en-AU", {
+                      style: "currency",
+                      currency: "AUD",
+                    })}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         )}
-        <div class="link-buttons">
-          {" "}
-          <Link to="/bookings" className="btn btn-primary">
-            Book Now
-          </Link>
+        <div>
+          <button class="button">
+            <Link to="/bookings">
+              <p class="links">Book Now</p>
+            </Link>
+          </button>
         </div>
       </div>
     );

@@ -17,6 +17,7 @@ const Navigation = () => {
       type: "setToken",
       data: null,
     });
+    window.location.href = "/";
   };
 
   return (

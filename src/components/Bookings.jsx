@@ -11,7 +11,7 @@ const Bookings = () => {
     return (
       <>
         <h1 class="title">Bookings</h1>
-        <h3>Hello, {loggedInUser}</h3>
+        <h3 class="text">Hello, {loggedInUser}</h3>
         <p class="text">
           Click {<Link to="/bookings/new">here</Link>} to make a new booking
         </p>

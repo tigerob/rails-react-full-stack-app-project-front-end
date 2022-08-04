@@ -111,6 +111,7 @@ const BookingForm = () => {
           <div>
             <label htmlFor="date">Date:</label>
             <DatePicker
+              id="date"
               selected={startDate}
               placeholderText="Select a weekday"
               onChange={(date) => {

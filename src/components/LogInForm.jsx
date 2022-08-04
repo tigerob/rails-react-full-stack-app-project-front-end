@@ -36,7 +36,6 @@ const LogInForm = () => {
           type: "setToken",
           data: user.jwt,
         });
-        sessionStorage.setItem("is_admin", user.is_admin);
         setFormData(initialFormData);
         navigate("/bookings");
       }
@@ -54,7 +53,7 @@ const LogInForm = () => {
       {error && <p>{error}</p>}
       <form class="form" onSubmit={handleSubmit}>
         <div>
-          <label>Email:  </label>
+          <label>Email: </label>
           <input
             type="email"
             name="email"

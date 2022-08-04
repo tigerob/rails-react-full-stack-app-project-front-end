@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useGlobalState } from "../utils/stateContext";
 
-const AsyncAwait = () => {
+const MyBookings = () => {
   const [bookings, setBookings] = useState([]);
   const { store } = useGlobalState();
   const { loggedInUser } = store;
@@ -103,19 +103,19 @@ const AsyncAwait = () => {
           </table>
         )}
         <div id="edit_form">
-          <h1>Update booking</h1>
+          <h1>Update Booking</h1>
           <input type="hidden" value={user_id} />
           <input type="hidden" value={username} />
           <input type="hidden" value={id} />
           <input
-            type="date"
+            type="text"
+            disabled={true}
             value={date}
-            onChange={(e) => {
-              setDate(e.target.value);
-            }}
+            onChange={(e) => {}}
           />
           <br></br>
           <input
+            disabled={true}
             type="time"
             value={time}
             onChange={(e) => {
@@ -199,4 +199,4 @@ const AsyncAwait = () => {
   );
 };
 
-export default AsyncAwait;
+export default MyBookings;

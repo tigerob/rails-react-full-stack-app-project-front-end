@@ -49,3 +49,4 @@ We include screenshots of this Trello board below.
 !["Trello board 5"](./docs/trelloB/Trello5.png)
 !["Trello board 6"](./docs/trelloB/Trello6.png)
 !["Trello board 7"](./docs/trelloB/Trello7.png)
+!["Trello board 8"](./docs/trelloB/Trello8.png)

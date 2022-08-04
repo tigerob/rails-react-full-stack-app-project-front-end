@@ -12,10 +12,10 @@ const Bookings = () => {
       <>
         <h1 class="title">Bookings</h1>
         <h3>Hello, {loggedInUser}</h3>
-        <p>
+        <p class="text">
           Click {<Link to="/bookings/new">here</Link>} to make a new booking
         </p>
-        <p>
+        <p class="text">
           View all upcoming and past bookings in:{" "}
           {<Link to="/accounts">Account</Link>}
         </p>
@@ -25,7 +25,7 @@ const Bookings = () => {
     return (
       <>
         <h1 class="title">Bookings</h1>
-        <p>Log in or sign up to make a booking</p>
+        <p class="text">Log in or sign up to make a booking</p>
       </>
     );
   }

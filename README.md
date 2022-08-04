@@ -29,20 +29,23 @@ During the development phase, we further considered the needs of our hypothetica
 
 ### Testing
 
-In addition to utilising a formal testing framework and writing test files, we also conducted extensive user testing of both the development site and production site. We include records of that testing below.
+In addition to utilising a formal testing framework and writing test files, we also conducted extensive user testing of both the development site and production site.
 
+We include records of that user testing below.
 
+!["User tests 1"](./docs/user-tests/user-tests-1.png)
+!["User tests 2"](./docs/user-tests/user-tests-2.png)
 
 ### Trello board
 
-Trello board available [here](https://trello.com/b/D6nQq4WS/project-rails-reactjs-booking-app-t3a2-b).
+The project Trello board is available [here](https://trello.com/b/D6nQq4WS/project-rails-reactjs-booking-app-t3a2-b).
 
-Screenshots below.
+We include screenshots of this Trello board below.
 
-![T1](./docs/trelloB/Trello1.png "Board 1")
-![T2](./docs/trelloB/Trello2.png "Board 2")
-![T3](./docs/trelloB/Trello3.png "Board 3")
-![T4](./docs/trelloB/Trello4.png "Board 4")
-![T5](./docs/trelloB/Trello5.png "Board 5")
-![T6](./docs/trelloB/Trello6.png "Board 6")
-![T7](./docs/trelloB/Trello7.png "Board 7")
+!["Trello board 1"](./docs/trelloB/Trello1.png)
+!["Trello board 2"](./docs/trelloB/Trello2.png)
+!["Trello board 3"](./docs/trelloB/Trello3.png)
+!["Trello board 4"](./docs/trelloB/Trello4.png)
+!["Trello board 5"](./docs/trelloB/Trello5.png)
+!["Trello board 6"](./docs/trelloB/Trello6.png)
+!["Trello board 7"](./docs/trelloB/Trello7.png)

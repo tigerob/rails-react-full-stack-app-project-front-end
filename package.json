@@ -18,6 +18,8 @@
     "react-scripts": "5.0.1",
     "react-select": "^5.4.0",
     "react-slick": "^0.29.0",
+    "react-test-renderer": "^18.0.0",
+    "sinon": "^2.1.0",
     "slick-carousel": "^1.8.1",
     "styled-components": "^5.3.5",
     "web-vitals": "^2.1.4"
@@ -25,7 +27,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --silent",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -45,5 +47,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.4"
   }
 }

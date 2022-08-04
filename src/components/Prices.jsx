@@ -8,7 +8,9 @@ const AsyncAwait = () => {
   const [price, setPrice] = useState();
 
   const fetchData = async () => {
-    const response = await fetch("http://localhost:3000/prices");
+    const response = await fetch(
+      "https://mia-music-studios-api.herokuapp.com/prices",
+    );
     const data = await response.json();
     setPrices(data);
   };
@@ -20,7 +22,7 @@ const AsyncAwait = () => {
   }
   function updatePrice() {
     let newprice = { price, id };
-    fetch(`http://localhost:3000/prices/${id}`, {
+    fetch(`https://mia-music-studios-api.herokuapp.com/prices/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

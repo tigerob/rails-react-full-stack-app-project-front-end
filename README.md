@@ -29,7 +29,9 @@ During the development phase, we further considered the needs of our hypothetica
 
 ### Testing
 
-In addition to utilising a formal testing framework and writing test files, we also conducted extensive user testing of both the development site and production site.
+In addition to utilising a formal testing framework and writing test files, we also conducted extensive user testing of both the development site and production site. We include records of that testing below.
+
+
 
 ### Trello board
 

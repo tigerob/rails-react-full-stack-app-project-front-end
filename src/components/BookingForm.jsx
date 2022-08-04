@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useGlobalState } from "../utils/stateContext";
 import { createBooking } from "../services/bookingsServices";
 import Select from "react-select";
@@ -15,9 +15,16 @@ const BookingForm = () => {
     location: "",
     instrument: "",
   };
+
   const [formData, setFormData] = useState(initialFormData);
   const [selectedOption, setSelectedOption] = useState(null);
   const [startDate, setStartDate] = useState(null);
+  const [bookings, setBookings] = useState([]);
+  const fetchData = async () => {
+    const response = await fetch("http://localhost:3000/bookings");
+    const data = await response.json();
+    setBookings(data);
+  };
 
   const timeOptions = [
     { value: "09:00", label: "9:00 am" },
@@ -31,10 +38,27 @@ const BookingForm = () => {
     { value: "17:00", label: "5:00 pm" },
   ];
 
+  const bookingTimes = bookings.filter((booking) => {
+    return booking.date === formData.date;
+  });
+
+  const Times = bookingTimes.map((booking) => {
+    return booking.time;
+  });
+  const timesOptionsfiltered = timeOptions.filter((time) => {
+    return !Times.includes(time.value);
+  });
+
   const isWeekday = (date) => {
     const day = date.getDay(date);
     return day !== 0 && day !== 6;
   };
+
+  console.log(timesOptionsfiltered);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -51,8 +75,8 @@ const BookingForm = () => {
     } else {
       console.log(formData);
       addBooking(formData);
-      // window.location.reload();
-      // window.location.href = "/accounts/mybookings";
+      window.location.reload();
+      window.location.href = "/accounts/mybookings";
     }
   };
 
@@ -62,7 +86,6 @@ const BookingForm = () => {
       [e.target.id]: e.target.value,
     });
   };
-  console.log(formData);
 
   const addBooking = (data) => {
     createBooking(data).then((booking) => {
@@ -89,21 +112,6 @@ const BookingForm = () => {
             />
           </div>
           <div>
-            <label htmlFor="time">Time:</label>
-            <Select
-              defultValue={selectedOption}
-              options={timeOptions}
-              placeholder="Choose a time"
-              onChange={(selectedOption) => {
-                setSelectedOption(selectedOption);
-                setFormData({
-                  ...formData,
-                  time: selectedOption.value,
-                });
-              }}
-            />
-          </div>
-          <div>
             <label htmlFor="date">Date:</label>
             <DatePicker
               selected={startDate}
@@ -112,10 +120,25 @@ const BookingForm = () => {
                 setStartDate(date);
                 setFormData({
                   ...formData,
-                  date: date.toISOString().split("T")[0],
+                  date: date.toString().slice(0, 15),
                 });
               }}
               filterDate={(date) => isWeekday(date)}
+            />
+          </div>
+          <div>
+            <label htmlFor="time">Time:</label>
+            <Select
+              defultValue={selectedOption}
+              options={timesOptionsfiltered}
+              placeholder="Choose a time"
+              onChange={(selectedOption) => {
+                setSelectedOption(selectedOption);
+                setFormData({
+                  ...formData,
+                  time: selectedOption.value,
+                });
+              }}
             />
           </div>
           <div>

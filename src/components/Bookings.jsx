@@ -31,7 +31,7 @@ const Bookings = () => {
     return (
       <>
         <h1 class="title">Bookings</h1>
-        <p>Log in or sign up to make a booking</p>
+        <p class="text">Log in or sign up to make a booking</p>
       </>
     );
   }

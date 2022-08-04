@@ -188,6 +188,10 @@ h2.info-head {
     rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
+.text {
+  padding: 0rem 1rem;
+}
+
 li.info-list {
   margin: 5vh 10vh 0;
   background-color: #333;

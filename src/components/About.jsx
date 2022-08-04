@@ -7,31 +7,24 @@ export default function About() {
     <div className="About">
       <h1 class="title">Mia Music Studios</h1>
       <Carousel class="carousel" />
-      <h2 class="info-head">Info container</h2>
+      <h2 class="info-head">Lessons</h2>
       <div class="info">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec metus
-          felis, interdum vel sem sit amet, euismod faucibus ligula. Nunc tellus
-          purus, pharetra a faucibus eu, hendrerit in nunc. Nulla ac imperdiet
-          leo, eget pharetra ipsum. Suspendisse potenti. Etiam fringilla, purus
-          id fringilla molestie, enim neque semper mi, eget facilisis.
+        <p class="text">
+        <p>Everyone can make music! Mia is passionate about creating an environment for you to discover your sound. Her approach to music lessons is holistic. She invites you to free your inner artist by experimenting with your breath, mind and body through vocal and musical exercises. From this point, Mia will guide you on the path of musical education that your interests take you.</p>
+        <p>Mia welcomes students of all ages and levels of musical experience, as well as music of all genres and styles. Mia principally teaches lessons in:</p>
           <ul>
-            <li>eget facilisis</li>
-            <li>faucibus eu</li>
-            <li>interdum vel</li>
-            <li>adipiscing elit</li>
+            <li>Guitar</li>
+            <li>Piano</li>
+            <li>Voice</li>
           </ul>
+        <p>If you have a specific interest in an instrument beyond these, don't hestitate to contact Mia to discuss.</p>
+        <p>Mia teaches her lessons at her studio at 1, Penny Lane, Melbourne 3000 and also online via Zoom.</p>
         </p>
       </div>
-      <h2 class="info-head"> About Mia</h2>
+      <h2 class="info-head"> About Mia Music</h2>
       <div class="info">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
-          elementum vel eros vitae rutrum. Suspendisse eros odio, consectetur
-          eget elit sit amet, egestas euismod leo. Integer quis ante malesuada,
-          rhoncus metus sed, congue ex. Praesent ornare a quam eget consectetur.
-          Praesent pretium ipsum vel porttitor lobortis. In purus ligula,
-          tincidunt.
+        <p class="text">
+          Mia's love for music began when she first picked up her mother's guitar at the age of three. Since then, she has studied classical voice with Brendan Hazzio at The University of Melbourne, peformed in a number of bands, and has been teaching music to students of all ages for over 15 years.
         </p>
       </div>
     </div>

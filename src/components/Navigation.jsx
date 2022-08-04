@@ -18,6 +18,7 @@ const Navigation = () => {
       data: null,
     });
     alert(" You have logged out successfully");
+    window.location.href = "/";
   };
 
   return (

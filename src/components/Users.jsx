@@ -61,8 +61,9 @@ const Users = () => {
         body: JSON.stringify(newuser),
       });
     }
-    navigate("/accounts/users");
+    navigate("/");
     window.location.reload();
+    alert("User was made an Admin");
   }
 
   return (

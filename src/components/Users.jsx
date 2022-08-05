@@ -5,8 +5,6 @@ const Users = () => {
   const [is_admin, setisAdmin] = useState(false);
   const [id, setId] = useState();
   const [username, setUsername] = useState();
-  const [password, setPassword] = useState();
-  const [email, setEmail] = useState();
   const editUser = () => setShowResults(true);
   const [showResults, setShowResults] = React.useState(false);
 
@@ -33,18 +31,14 @@ const Users = () => {
       setId(user.id);
       setUsername(user.username);
       setisAdmin((user.is_admin = true));
-      setEmail(user.email);
-      setPassword(user.password);
     } else {
       setId(user.id);
       setUsername(user.username);
       setisAdmin((user.is_admin = false));
-      setEmail(user.email);
-      setPassword(user.password);
     }
   }
   function updateUser() {
-    let newuser = { id, username, is_admin, email, password };
+    let newuser = { id, username, is_admin };
     fetch(`http://localhost:3000/users/${id}`, {
       method: "PUT",
       headers: {
@@ -104,8 +98,6 @@ const Users = () => {
           <input type="text" disabled={true} value={username} />
           <p>Administrator status?</p>
           <input type="hidden" value={id} />
-          <input type="hidden" value={email} />
-          <input type="hidden" value={password} />
           <input type="hidden" value={is_admin} />
           <br></br>
           <button class="button" onClick={updateUser}>

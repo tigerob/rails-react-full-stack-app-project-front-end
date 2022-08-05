@@ -14,6 +14,7 @@ import LogInForm from "./LogInForm";
 import Navigation from "./Navigation";
 import Prices from "./Prices";
 import MyBookings from "./MyBookings";
+import Users from "./Users";
 import Accounts from "./Accounts";
 import SignUp from "./SignUpForm";
 import PageNotFound from "./PageNotFound";
@@ -48,6 +49,7 @@ const App = () => {
             <Route path="contact" element={<Contact />} />
             <Route path="accounts" element={<Accounts />} />
             <Route path="accounts/mybookings" element={<MyBookings />} />
+            <Route path="accounts/users" element={<Users />} />
             <Route path="login" element={<LogInForm />} />
             <Route path="prices" element={<Prices />} />
             <Route path="signup" element={<SignUp />} />

@@ -43,7 +43,6 @@ const Users = () => {
         },
         body: JSON.stringify(newuser),
       });
-      window.location.reload();
     } else {
       setId(user.id);
       setUsername(user.username);
@@ -58,8 +57,8 @@ const Users = () => {
         },
         body: JSON.stringify(newuser),
       });
-      window.location.reload();
     }
+    window.location.reload();
   }
 
   return (

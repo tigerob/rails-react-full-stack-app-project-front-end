@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 
 const BookingForm = () => {
   const { store, dispatch } = useGlobalState();
+  const navigate = useNavigate();
   const { loggedInUser } = store;
   const initialFormData = {
     username: `${loggedInUser}`,
@@ -61,28 +62,23 @@ const BookingForm = () => {
     fetchData();
   }, []);
 
-  function Home() {
-    const navigate = useNavigate();
-
-    return (handleSubmit = (e) => {
-      e.preventDefault();
-      if (
-        formData.username === "" ||
-        formData.time === "" ||
-        formData.date === "" ||
-        formData.location === "" ||
-        formData.instrument === ""
-      ) {
-        alert(
-          "One or more fields left blank. Please complete all fields to make booking.",
-        );
-      } else {
-        addBooking(formData);
-        window.location.reload();
-        navigate("/accounts/mybookings");
-      }
-    });
-  }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (
+      formData.username === "" ||
+      formData.time === "" ||
+      formData.date === "" ||
+      formData.location === "" ||
+      formData.instrument === ""
+    ) {
+      alert(
+        "One or more fields left blank. Please complete all fields to make booking.",
+      );
+    } else {
+      addBooking(formData);
+      navigate("/accounts/mybookings");
+    }
+  };
 
   const handleFormData = (e) => {
     setFormData({
@@ -214,9 +210,6 @@ const BookingForm = () => {
               <input type="submit" value="Make booking" />
             </button>
           </form>
-          <Routes>
-            <Route path="/accounts/mybookings" element={<Home />} />
-          </Routes>
         </>
       </div>
     </>

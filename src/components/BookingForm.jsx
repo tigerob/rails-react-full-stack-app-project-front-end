@@ -76,8 +76,7 @@ const BookingForm = () => {
       );
     } else {
       addBooking(formData);
-      window.location.reload();
-      navigate("/accounts/mybookings");
+      navigate("accounts/mybookings");
     }
   };
 

@@ -21,7 +21,9 @@ const BookingForm = () => {
   const [startDate, setStartDate] = useState(null);
   const [bookings, setBookings] = useState([]);
   const fetchData = async () => {
-    const response = await fetch("http://mia-music-api.herokuapp.com/bookings");
+    const response = await fetch(
+      "https://mia-music-api.herokuapp.com/bookings",
+    );
     const data = await response.json();
     setBookings(data);
   };

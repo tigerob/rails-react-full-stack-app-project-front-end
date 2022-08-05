@@ -23,7 +23,9 @@ const MyBookings = () => {
     mybookings = bookings;
   }
   const fetchData = async () => {
-    const response = await fetch("http://mia-music-api.herokuapp.com/bookings");
+    const response = await fetch(
+      "https://mia-music-api.herokuapp.com/bookings",
+    );
     const data = await response.json();
     setBookings(data);
   };
@@ -33,7 +35,7 @@ const MyBookings = () => {
   }, []);
 
   function deleteBooking(id) {
-    fetch(`http://mia-music-api.herokuapp.com/bookings/${id}`, {
+    fetch(`https://mia-music-api.herokuapp.com/bookings/${id}`, {
       method: "DELETE",
     });
     setBookings(bookings.filter((booking) => booking.id !== id));
@@ -52,7 +54,7 @@ const MyBookings = () => {
 
   function updateBooking() {
     let booking = { user_id, username, id, date, time, location, instrument };
-    fetch(`http://mia-music-api.herokuapp.com/bookings/${id}`, {
+    fetch(`https://mia-music-api.herokuapp.com/bookings/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

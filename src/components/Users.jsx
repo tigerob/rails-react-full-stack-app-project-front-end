@@ -58,7 +58,6 @@ const Users = () => {
         body: JSON.stringify(newuser),
       });
     }
-    window.location.reload();
   }
 
   return (

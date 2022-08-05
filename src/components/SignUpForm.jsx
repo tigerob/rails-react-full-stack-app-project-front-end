@@ -65,55 +65,59 @@ const SignUpForm = () => {
         <br></br>
       </div>
       <div class="info">
-        <form class="form" onSubmit={handleSubmit}>
-          <div>
-            <label>Username: </label>
-            <br></br>
-            <input
-              type="text"
-              name="username"
-              id="username"
-              value={formData.username}
-              onChange={handleFormData}
-            />
-          </div>
-          <div>
-            <label>Email: </label>
-            <br></br>
-            <input
-              type="email"
-              name="email"
-              id="email"
-              value={formData.email}
-              onChange={handleFormData}
-            />
-          </div>
-          <div>
-            <label htmlFor="password">Password: </label>
-            <br></br>
-            <input
-              type="password"
-              name="password"
-              id="password"
-              value={formData.password}
-              onChange={handleFormData}
-            />
-          </div>
-          <div>
-            <label htmlFor="password">Password confirmation: </label>
-            <br></br>
-            <input
-              type="password"
-              name="password_confirmation"
-              id="password_confirmation"
-              value={formData.password_confirmation}
-              onChange={handleFormData}
-            />
-          </div>
-          <buton class="button">
-            <input class="button" type="submit" value="Sign up" />
-          </buton>
-        </form>
+        <div class="center">
+          <form class="form" onSubmit={handleSubmit}>
+            <div>
+              <label>Username: </label>
+              <br></br>
+              <input
+                type="text"
+                name="username"
+                id="username"
+                value={formData.username}
+                onChange={handleFormData}
+              />
+            </div>
+            <div>
+              <label>Email: </label>
+              <br></br>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                value={formData.email}
+                onChange={handleFormData}
+              />
+            </div>
+            <div>
+              <label htmlFor="password">Password: </label>
+              <br></br>
+              <input
+                type="password"
+                name="password"
+                id="password"
+                value={formData.password}
+                onChange={handleFormData}
+              />
+            </div>
+            <div>
+              <label htmlFor="password">Password confirmation: </label>
+              <br></br>
+              <input
+                type="password"
+                name="password_confirmation"
+                id="password_confirmation"
+                value={formData.password_confirmation}
+                onChange={handleFormData}
+              />
+            </div>
+            <div class="center">
+              <buton class="button">
+                <input class="button" type="submit" value="Sign up" />
+              </buton>
+            </div>
+          </form>
+        </div>
       </div>
     </>
   );

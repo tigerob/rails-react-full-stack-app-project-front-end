@@ -8,7 +8,7 @@ const AsyncAwait = () => {
   const [price, setPrice] = useState();
 
   const fetchData = async () => {
-    const response = await fetch("http://localhost:3000/prices");
+    const response = await fetch("http://mia-music-api.herokuapp.com/prices");
     const data = await response.json();
     setPrices(data);
   };
@@ -20,7 +20,7 @@ const AsyncAwait = () => {
   }
   function updatePrice() {
     let newprice = { price, id };
-    fetch(`http://localhost:3000/prices/${id}`, {
+    fetch(`http://mia-music-api.herokuapp.com/prices/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -41,57 +41,59 @@ const AsyncAwait = () => {
         <div>
           <h1 class="title">Mia's Prices</h1>
         </div>
-        <div class="price-info"></div>
+        <div class="info"></div>
         {prices.length > 0 && (
           <>
-            <table class="styled-table">
-              <tr>
-                <th>Instrument</th>
-                <th>Current Price</th>
-                <th>Operations</th>
-              </tr>
-              <tbody>
-                {prices.map((price) => (
-                  <tr>
-                    <td>{price.instrument.toUpperCase()}</td>
-                    <td>
-                      {price.price.toLocaleString("en-AU", {
-                        style: "currency",
-                        currency: "AUD",
-                      })}
-                    </td>
-                    <td>
-                      <button
-                        onClick={() => selectPrice(price.id)}
-                        class="button"
-                      >
-                        <p class="links">Edit</p>
-                      </button>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-            <table class="styled-table">
-              <div class="center">
-                <h2>Update Price</h2>
+            <div>
+              <table class="styled-table">
+                <tr>
+                  <th>Instrument</th>
+                  <th>Current Price</th>
+                  <th>Operations</th>
+                </tr>
                 <tbody>
-                  <input type="hidden" value={id} />
-                  <input
-                    type="text"
-                    value={price}
-                    onChange={(e) => {
-                      setPrice(e.target.value);
-                    }}
-                  />
-                  <div>
-                    <button onClick={updatePrice} class="button">
-                      <p class="links">Update Price</p>
-                    </button>
-                  </div>
+                  {prices.map((price) => (
+                    <tr>
+                      <td>{price.instrument.toUpperCase()}</td>
+                      <td>
+                        {price.price.toLocaleString("en-AU", {
+                          style: "currency",
+                          currency: "AUD",
+                        })}
+                      </td>
+                      <td>
+                        <button
+                          onClick={() => selectPrice(price.id)}
+                          class="button"
+                        >
+                          <p class="links">Edit</p>
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
                 </tbody>
-              </div>
-            </table>
+              </table>
+              <table class="styled-table">
+                <div class="center">
+                  <h2>Update Price</h2>
+                  <tbody>
+                    <input type="hidden" value={id} />
+                    <input
+                      type="text"
+                      value={price}
+                      onChange={(e) => {
+                        setPrice(e.target.value);
+                      }}
+                    />
+                    <div>
+                      <button onClick={updatePrice} class="button">
+                        <p class="links">Update Price</p>
+                      </button>
+                    </div>
+                  </tbody>
+                </div>
+              </table>
+            </div>
           </>
         )}
       </div>
@@ -104,27 +106,29 @@ const AsyncAwait = () => {
         </div>
         <div class="price-info"></div>
         {prices.length > 0 && (
-          <table class="styled-table">
-            <tr>
-              <th>Instrument</th>
-              <th>Current Price</th>
-            </tr>
-            <tbody>
-              {prices.map((price) => (
-                <tr>
-                  <td>{price.instrument.toUpperCase()}</td>
-                  <td>
-                    {price.price.toLocaleString("en-AU", {
-                      style: "currency",
-                      currency: "AUD",
-                    })}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+          <div>
+            <table class="styled-table">
+              <tr>
+                <th>Instrument</th>
+                <th>Current Price</th>
+              </tr>
+              <tbody>
+                {prices.map((price) => (
+                  <tr>
+                    <td>{price.instrument.toUpperCase()}</td>
+                    <td>
+                      {price.price.toLocaleString("en-AU", {
+                        style: "currency",
+                        currency: "AUD",
+                      })}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         )}
-        <div>
+        <div class="center">
           <button class="button">
             <Link to="/bookings">
               <p class="links">Book Now</p>

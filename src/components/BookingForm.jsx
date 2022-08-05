@@ -4,7 +4,7 @@ import { createBooking } from "../services/bookingsServices";
 import Select from "react-select";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const BookingForm = () => {
   const { store, dispatch } = useGlobalState();
@@ -61,24 +61,28 @@ const BookingForm = () => {
     fetchData();
   }, []);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (
-      formData.username === "" ||
-      formData.time === "" ||
-      formData.date === "" ||
-      formData.location === "" ||
-      formData.instrument === ""
-    ) {
-      alert(
-        "One or more fields left blank. Please complete all fields to make booking.",
-      );
-    } else {
-      addBooking(formData);
-      window.location.reload();
-      Navigate("accounts/mybookings");
-    }
-  };
+  function Home() {
+    const navigate = useNavigate();
+
+    return (handleSubmit = (e) => {
+      e.preventDefault();
+      if (
+        formData.username === "" ||
+        formData.time === "" ||
+        formData.date === "" ||
+        formData.location === "" ||
+        formData.instrument === ""
+      ) {
+        alert(
+          "One or more fields left blank. Please complete all fields to make booking.",
+        );
+      } else {
+        addBooking(formData);
+        window.location.reload();
+        navigate("/accounts/mybookings");
+      }
+    });
+  }
 
   const handleFormData = (e) => {
     setFormData({
@@ -210,6 +214,9 @@ const BookingForm = () => {
               <input type="submit" value="Make booking" />
             </button>
           </form>
+          <Routes>
+            <Route path="/accounts/mybookings" element={<Home />} />
+          </Routes>
         </>
       </div>
     </>

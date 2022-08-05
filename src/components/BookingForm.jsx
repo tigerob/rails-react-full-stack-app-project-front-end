@@ -4,6 +4,7 @@ import { createBooking } from "../services/bookingsServices";
 import Select from "react-select";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { Navigate } from "react-router-dom";
 
 const BookingForm = () => {
   const { store, dispatch } = useGlobalState();
@@ -75,8 +76,7 @@ const BookingForm = () => {
     } else {
       addBooking(formData);
       window.location.reload();
-      window.location.href =
-        "https://mia-music-studios-api.herokuapp.com/accounts/mybookings";
+      navigate("accounts/mybookings");
     }
   };
 

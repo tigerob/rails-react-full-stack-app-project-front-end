@@ -18,6 +18,10 @@ const Navigation = () => {
       type: "setToken",
       data: null,
     });
+    dispatch({
+      type: "setIsAdmin",
+      data: null,
+    });
     alert(" You have logged out successfully");
     window.location.href = "/";
   };

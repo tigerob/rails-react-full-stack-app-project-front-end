@@ -22,7 +22,7 @@ const BookingForm = () => {
   const [bookings, setBookings] = useState([]);
   const fetchData = async () => {
     const response = await fetch(
-      "https://mia-music-api.herokuapp.com/bookings",
+      "https://mia-music-studios-api.herokuapp.com/bookings",
     );
     const data = await response.json();
     setBookings(data);

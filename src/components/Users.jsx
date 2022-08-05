@@ -8,6 +8,7 @@ const Users = () => {
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
   const [email, setEmail] = useState();
+  const navigate = useNavigate();
 
   const fetchData = async () => {
     const response = await fetch(

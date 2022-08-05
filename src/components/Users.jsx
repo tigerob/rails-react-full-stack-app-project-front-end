@@ -43,7 +43,8 @@ const Users = () => {
         },
         body: JSON.stringify(newuser),
       });
-    } else {
+    }
+    if (user.is_admin === false) {
       setId(user.id);
       setUsername(user.username);
       setisAdmin((user.is_admin = true));
@@ -58,6 +59,7 @@ const Users = () => {
         body: JSON.stringify(newuser),
       });
     }
+    window.location.reload();
   }
 
   return (

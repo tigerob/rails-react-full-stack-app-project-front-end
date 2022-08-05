@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Users = () => {
   const [users, setUsers] = useState([]);
@@ -7,6 +8,7 @@ const Users = () => {
   const [username, setUsername] = useState();
   const editUser = () => setShowResults(true);
   const [showResults, setShowResults] = React.useState(false);
+  const navigate = useNavigate();
 
   const fetchData = async () => {
     const response = await fetch(
@@ -48,7 +50,7 @@ const Users = () => {
       },
       body: JSON.stringify(newuser),
     });
-    window.location.reload();
+    navigate("/");
     alert("User updated");
   }
 

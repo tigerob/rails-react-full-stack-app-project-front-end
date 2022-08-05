@@ -49,12 +49,12 @@ const Accounts = () => {
                 View your Bookings
               </Link>
             </button>
-            <br></br>
-            <button class="button">
+            {/* <br></br> */}
+            {/* <button class="button">
               <Link class="links" to="/accounts/mybookings">
                 Change Your Details
               </Link>
-            </button>
+            </button> */}
           </div>
         </div>
       </div>

@@ -427,3 +427,10 @@ li.info-list {
   -webkit-user-select: none;
   touch-action: manipulation;
 }
+
+.center {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

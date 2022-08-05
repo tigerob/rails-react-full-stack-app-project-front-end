@@ -8,9 +8,7 @@ const AsyncAwait = () => {
   const [price, setPrice] = useState();
 
   const fetchData = async () => {
-    const response = await fetch(
-      "https://mia-music-studios-api.herokuapp.com/prices",
-    );
+    const response = await fetch("http://localhost:3000/prices");
     const data = await response.json();
     setPrices(data);
   };
@@ -22,7 +20,7 @@ const AsyncAwait = () => {
   }
   function updatePrice() {
     let newprice = { price, id };
-    fetch(`https://mia-music-studios-api.herokuapp.com/prices/${id}`, {
+    fetch(`http://localhost:3000/prices/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -74,22 +72,26 @@ const AsyncAwait = () => {
                 ))}
               </tbody>
             </table>
-            <div class="info">
-              <h2>Update Price</h2>
-              <input type="hidden" value={id} />
-              <input
-                type="text"
-                value={price}
-                onChange={(e) => {
-                  setPrice(e.target.value);
-                }}
-              />
-              <div>
-                <button onClick={updatePrice} class="button">
-                  <p class="links">Update Price</p>
-                </button>
+            <table class="styled-table">
+              <div class="center">
+                <h2>Update Price</h2>
+                <tbody>
+                  <input type="hidden" value={id} />
+                  <input
+                    type="text"
+                    value={price}
+                    onChange={(e) => {
+                      setPrice(e.target.value);
+                    }}
+                  />
+                  <div>
+                    <button onClick={updatePrice} class="button">
+                      <p class="links">Update Price</p>
+                    </button>
+                  </div>
+                </tbody>
               </div>
-            </div>
+            </table>
           </>
         )}
       </div>

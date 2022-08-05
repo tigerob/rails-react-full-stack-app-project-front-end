@@ -81,7 +81,7 @@ const LogInForm = () => {
             />
           </div>
           <buton class="button">
-            <input type="submit" value="Log In" />
+            <input class="button" type="submit" value="Log In" />
           </buton>
         </form>
       </div>

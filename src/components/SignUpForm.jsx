@@ -111,7 +111,7 @@ const SignUpForm = () => {
             />
           </div>
           <buton class="button">
-            <input class="links" type="submit" value="Sign up" />
+            <input class="button" type="submit" value="Sign up" />
           </buton>
         </form>
       </div>

@@ -9,6 +9,7 @@ const Navigation = () => {
   const handleLogout = () => {
     sessionStorage.removeItem("username");
     sessionStorage.removeItem("token");
+    sessionStorage.removeItem("is_admin");
     dispatch({
       type: "setLoggedInUser",
       data: null,

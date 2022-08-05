@@ -75,7 +75,8 @@ const BookingForm = () => {
     } else {
       addBooking(formData);
       window.location.reload();
-      window.location.href = "/accounts/mybookings";
+      window.location.href =
+        "https://mia-music-studios-api.herokuapp.com/accounts/mybookings";
     }
   };
 

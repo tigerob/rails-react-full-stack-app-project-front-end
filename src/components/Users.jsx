@@ -9,13 +9,15 @@ const Users = () => {
   const [showResults, setShowResults] = React.useState(false);
 
   const fetchData = async () => {
-    const response = await fetch("http://localhost:3000/users");
+    const response = await fetch(
+      "https://mia-music-studios-api.herokuapp.com/users",
+    );
     const data = await response.json();
     setUsers(data);
   };
 
   function deleteUser(id) {
-    fetch(`http://localhost:3000/users/${id}`, {
+    fetch(`https://mia-music-studios-api.herokuapp.com/users/${id}`, {
       method: "DELETE",
     });
     setUsers(users.filter((user) => user.id !== id));
@@ -39,7 +41,7 @@ const Users = () => {
   }
   function updateUser() {
     let newuser = { id, username, is_admin };
-    fetch(`http://localhost:3000/users/${id}`, {
+    fetch(`https://mia-music-studios-api.herokuapp.com/users/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

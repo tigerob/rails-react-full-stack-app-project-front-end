@@ -31,21 +31,6 @@ const Users = () => {
 
   function selectUser(id) {
     let user = users.find((user) => user.id === id);
-    if (user.is_admin === true) {
-      setId(user.id);
-      setUsername(user.username);
-      setisAdmin((user.is_admin = false));
-      setEmail(user.email);
-      setPassword(user.password);
-      let newuser = { id, username, is_admin, email, password };
-      fetch(`https://mia-music-studios-api.herokuapp.com/users/${id}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(newuser),
-      });
-    }
     if (user.is_admin === false) {
       setId(user.id);
       setUsername(user.username);
@@ -60,10 +45,24 @@ const Users = () => {
         },
         body: JSON.stringify(newuser),
       });
+    } else {
+      setId(user.id);
+      setUsername(user.username);
+      setisAdmin((user.is_admin = false));
+      setEmail(user.email);
+      setPassword(user.password);
+      let newuser = { id, username, is_admin, email, password };
+      fetch(`https://mia-music-studios-api.herokuapp.com/users/${id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newuser),
+      });
     }
-    navigate("/");
-    window.location.reload();
-    alert("User was made an Admin");
+    // navigate("/");
+    // window.location.reload();
+    // alert("User was made an Admin");
   }
 
   return (

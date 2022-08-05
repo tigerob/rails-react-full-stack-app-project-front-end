@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const miaMusicAPI = axios.create({
-  baseURL: "https://mia-music-studios-api.herokuapp.com/",
+  baseURL: process.env.REACT_APP_BACKEND_URL,
 });
 
 miaMusicAPI.interceptors.request.use((req) => {

@@ -61,7 +61,7 @@ const Users = () => {
         body: JSON.stringify(newuser),
       });
     }
-    navigate("/users");
+    navigate("/accounts/users");
     window.location.reload();
   }
 

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Users = () => {
   const [users, setUsers] = useState([]);
@@ -59,6 +60,7 @@ const Users = () => {
         body: JSON.stringify(newuser),
       });
     }
+    navigate("/users");
     window.location.reload();
   }
 

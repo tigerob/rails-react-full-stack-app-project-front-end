@@ -1,25 +1,23 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 const Users = () => {
   const [users, setUsers] = useState([]);
   const [is_admin, setisAdmin] = useState(false);
-  const [, setId] = useState();
+  const [id, setId] = useState();
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
   const [email, setEmail] = useState();
-  const navigate = useNavigate();
+  const editUser = () => setShowResults(true);
+  const [showResults, setShowResults] = React.useState(false);
 
   const fetchData = async () => {
-    const response = await fetch(
-      "https://mia-music-studios-api.herokuapp.com/users",
-    );
+    const response = await fetch("http://localhost:3000/users");
     const data = await response.json();
     setUsers(data);
   };
 
   function deleteUser(id) {
-    fetch(`https://mia-music-studios-api.herokuapp.com/users/${id}`, {
+    fetch(`http://localhost:3000/users/${id}`, {
       method: "DELETE",
     });
     setUsers(users.filter((user) => user.id !== id));
@@ -37,31 +35,25 @@ const Users = () => {
       setisAdmin((user.is_admin = true));
       setEmail(user.email);
       setPassword(user.password);
-      let newuser = { id, username, is_admin, email, password };
-      fetch(`https://mia-music-studios-api.herokuapp.com/users/${id}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(newuser),
-      });
     } else {
       setId(user.id);
       setUsername(user.username);
       setisAdmin((user.is_admin = false));
       setEmail(user.email);
       setPassword(user.password);
-      let newuser = { id, username, is_admin, email, password };
-      fetch(`https://mia-music-studios-api.herokuapp.com/users/${id}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(newuser),
-      });
     }
-    navigate("/");
-    alert("User was made an Admin");
+  }
+  function updateUser() {
+    let newuser = { id, username, is_admin, email, password };
+    fetch(`http://localhost:3000/users/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newuser),
+    });
+    window.location.reload();
+    alert("User updated");
   }
 
   return (
@@ -91,9 +83,13 @@ const Users = () => {
                         selectUser(user.id);
                       }}
                     >
+                      {showResults ? <return /> : null}
                       <p class="links">Make Admin</p>
                     </button>
-                    <button class="button" onClick={() => deleteUser(user.id)}>
+                    <button
+                      class="button"
+                      onClick={() => deleteUser(user.id, { editUser })}
+                    >
                       <p class="links">Delete</p>
                     </button>
                   </td>
@@ -102,6 +98,20 @@ const Users = () => {
             </tbody>
           </table>
         )}
+        <div class="form-style-5">
+          <h1>Make User Admin</h1>
+          <p>Did you want to change</p>
+          <input type="text" disabled={true} value={username} />
+          <p>Administrator status?</p>
+          <input type="hidden" value={id} />
+          <input type="hidden" value={email} />
+          <input type="hidden" value={password} />
+          <input type="hidden" value={is_admin} />
+          <br></br>
+          <button class="button" onClick={updateUser}>
+            <p class="links">Change Now</p>
+          </button>
+        </div>
       </div>
     </>
   );

@@ -77,9 +77,8 @@ const BookingForm = () => {
     } else {
       addBooking(formData);
       navigate("/");
-      navigate("/accounts/mybookings");
-      alert("Booking created successfully");
       window.location.reload();
+      alert("Booking created successfully");
     }
   };
 

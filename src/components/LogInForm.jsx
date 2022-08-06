@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useGlobalState } from "../utils/stateContext";
 import { logIn } from "../services/authServices";
+import image from "../assets/mv2.gif";
 
 const LogInForm = () => {
   const { dispatch } = useGlobalState();
@@ -50,7 +51,10 @@ const LogInForm = () => {
   return (
     <>
       <h1 class="title">Log in</h1>
-      {error && <p>{error}</p>}
+      {error && <p>{error}</p>}{" "}
+      <div class="image">
+        <img src={image} alt="music" />
+      </div>
       <div class="form-style-5">
         <br></br>
         <br></br>

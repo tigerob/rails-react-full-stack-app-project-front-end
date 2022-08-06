@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useGlobalState } from "../utils/stateContext";
+import image from "../assets/mv2.gif";
 
 const Accounts = () => {
   const { store } = useGlobalState();
@@ -12,6 +13,9 @@ const Accounts = () => {
       <div>
         <h1 class="title">Welcome {loggedInUser && <p>{loggedInUser}</p>} </h1>
         <div>
+          <div class="image">
+            <img src={image} alt="music" />
+          </div>
           <h2 class="info-head">
             What would you<br></br>like to do?
           </h2>
@@ -40,6 +44,9 @@ const Accounts = () => {
       <div>
         <h1 class="title">Welcome {loggedInUser && <p>{loggedInUser}</p>} </h1>
         <div>
+          <div class="image">
+            <img src={image} alt="music" />
+          </div>
           <h2 class="info-head">
             What would you<br></br>like to do?
           </h2>

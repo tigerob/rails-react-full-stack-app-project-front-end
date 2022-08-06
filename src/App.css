@@ -33,6 +33,7 @@ body {
   font-size: 20px;
   min-height: 100vh;
   font-family: "Cabin", Sans-serif;
+  background-color: rgb(231, 231, 231);
 }
 
 .overlay {
@@ -162,7 +163,9 @@ h1.title {
   padding: 10px;
   background-color: #333;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
   color: #ffffff;
   font-size: medium;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -295,7 +298,10 @@ li.info-list {
   margin: 0 auto;
   font-size: 0.9em;
   font-family: sans-serif;
-  min-width: 400px;
+  border: 1px solid #ddd;
+  border-collapse: collapse;
+  width: 100%;
+
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
@@ -433,4 +439,13 @@ li.info-list {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.image {
+  position: absolute;
+  margin-top: -15vh;
+  margin-left: 20vw;
+  border-radius: 10px;
+  z-index: -99999999;
+  background-size: 125px 175px;
 }

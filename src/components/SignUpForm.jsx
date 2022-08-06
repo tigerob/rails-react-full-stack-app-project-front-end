@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useGlobalState } from "../utils/stateContext";
 import { signUp } from "../services/authServices";
+import image from "../assets/mv2.gif";
 
 const SignUpForm = () => {
   const { dispatch } = useGlobalState();
@@ -59,6 +60,9 @@ const SignUpForm = () => {
     <>
       <h1 class="title">Sign up</h1>
       {error && <p>{error}</p>}
+      <div class="image">
+        <img src={image} alt="music" />
+      </div>
       <div class="info-head">
         <br></br>
         <br></br>

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import image from "../assets/mv2.gif";
 
 const Contact = () => {
   const [serverState, setServerState] = useState({
@@ -34,6 +35,9 @@ const Contact = () => {
   return (
     <>
       <h1 class="title">Contact Mia</h1>
+      <div class="image">
+        <img src={image} alt="music" />
+      </div>
       <h2 class="info-head">Please Submit A Form</h2>{" "}
       <div class="info">
         <form class="form" onSubmit={handleOnSubmit}>

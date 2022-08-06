@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getPrices } from "../services/pricesServices";
+import image from "../assets/mv2.gif";
 
 const AsyncAwait = () => {
   const [prices, setPrices] = useState([]);
@@ -40,6 +41,9 @@ const AsyncAwait = () => {
       <div>
         <div>
           <h1 class="title">Mia's Prices</h1>
+        </div>
+        <div class="image">
+          <img src={image} alt="music" />
         </div>
         <div class="info"></div>
         {prices.length > 0 && (
@@ -103,6 +107,9 @@ const AsyncAwait = () => {
       <div>
         <div>
           <h1 class="title">Mia's Prices</h1>
+        </div>
+        <div class="image">
+          <img src={image} alt="music" />
         </div>
         <div class="price-info"></div>
         {prices.length > 0 && (

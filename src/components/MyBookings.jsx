@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useGlobalState } from "../utils/stateContext";
 import { deleteBooking } from "../services/bookingsServices";
 import { getBookings } from "../services/bookingsServices";
-
+import image from "../assets/mv2.gif";
 const MyBookings = () => {
   const [bookings, setBookings] = useState([]);
   const { store } = useGlobalState();
@@ -72,6 +72,9 @@ const MyBookings = () => {
       <div>
         <div>
           <h1 class="title">Your Bookings</h1>
+        </div>
+        <div class="image">
+          <img src={image} alt="music" />
         </div>
         <div class="info"></div>
         {mybookings.length > 0 && (

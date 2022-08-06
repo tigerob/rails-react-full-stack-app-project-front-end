@@ -5,6 +5,7 @@ import Select from "react-select";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useNavigate } from "react-router-dom";
+import image from "../assets/mv2.gif";
 
 const BookingForm = () => {
   const { store, dispatch } = useGlobalState();
@@ -102,6 +103,9 @@ const BookingForm = () => {
     <>
       <div className="About">
         <h1 class="title">Booking Form</h1>
+      </div>
+      <div class="image">
+        <img src={image} alt="music" />
       </div>
       <div class="form-style-5">
         <>

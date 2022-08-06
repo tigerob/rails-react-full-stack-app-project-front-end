@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getUsers } from "../services/userServices";
 import { deleteUsers } from "../services/userServices";
+import image from "../assets/mv2.gif";
 
 const Users = () => {
   const [users, setUsers] = useState([]);
@@ -59,6 +60,9 @@ const Users = () => {
       <div>
         <div>
           <h1 class="title">All Users</h1>
+        </div>
+        <div class="image">
+          <img src={image} alt="music" />
         </div>
         <div class="info"></div>
         {users.length > 0 && (

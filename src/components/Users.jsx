@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { getUsers } from "../services/userServices";
+import { deleteUsers } from "../services/userServices";
 
 const Users = () => {
   const [users, setUsers] = useState([]);
@@ -11,18 +13,16 @@ const Users = () => {
   const navigate = useNavigate();
 
   const fetchData = async () => {
-    const response = await fetch(
-      "https://mia-music-studios-api.herokuapp.com/users",
-    );
-    const data = await response.json();
-    setUsers(data);
+    const response = await getUsers();
+    setUsers(response);
   };
 
   function deleteUser(id) {
-    fetch(`https://mia-music-studios-api.herokuapp.com/users/${id}`, {
-      method: "DELETE",
-    });
-    setUsers(users.filter((user) => user.id !== id));
+    deleteUsers(id)
+      .then(() => {
+        fetchData();
+      })
+      .catch((err) => console.log(err));
   }
 
   useEffect(() => {
@@ -60,6 +60,7 @@ const Users = () => {
         <div>
           <h1 class="title">All Users</h1>
         </div>
+        <div class="info"></div>
         {users.length > 0 && (
           <table class="styled-table">
             <tr>

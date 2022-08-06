@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { getPrices } from "../services/pricesServices";
 
 const AsyncAwait = () => {
   const [prices, setPrices] = useState([]);
@@ -8,11 +9,8 @@ const AsyncAwait = () => {
   const [price, setPrice] = useState();
 
   const fetchData = async () => {
-    const response = await fetch(
-      "https://mia-music-studios-api.herokuapp.com/prices",
-    );
-    const data = await response.json();
-    setPrices(data);
+    const response = await getPrices();
+    setPrices(response);
   };
 
   function selectPrice(id) {

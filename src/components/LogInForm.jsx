@@ -55,39 +55,45 @@ const LogInForm = () => {
       <div class="image">
         <img src={image} alt="music" />
       </div>
-      <div class="form-style-5">
-        <br></br>
-        <br></br>
-        <br></br>
-      </div>
-      <div class="info">
-        <form onSubmit={handleSubmit}>
-          <div>
-            <label>Email: </label>
-            <br></br>
-            <input
-              type="email"
-              name="email"
-              id="email"
-              value={formData.email}
-              onChange={handleFormData}
-            />
+      <div class="info-head">
+        <div class="form-style-5">
+          <br></br>
+          <br></br>
+          <br></br>
+        </div>
+        <div class="info">
+          <div class="center">
+            <form onSubmit={handleSubmit}>
+              <div>
+                <label>Email: </label>
+                <br></br>
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  value={formData.email}
+                  onChange={handleFormData}
+                />
+              </div>
+              <div>
+                <label htmlFor="password">Password: </label>
+                <br></br>
+                <input
+                  type="password"
+                  name="password"
+                  id="password"
+                  value={formData.password}
+                  onChange={handleFormData}
+                />
+              </div>
+              <div class="center">
+                <buton class="button">
+                  <input class="button" type="submit" value="Log In" />
+                </buton>
+              </div>
+            </form>
           </div>
-          <div>
-            <label htmlFor="password">Password: </label>
-            <br></br>
-            <input
-              type="password"
-              name="password"
-              id="password"
-              value={formData.password}
-              onChange={handleFormData}
-            />
-          </div>
-          <buton class="button">
-            <input class="button" type="submit" value="Log In" />
-          </buton>
-        </form>
+        </div>
       </div>
     </>
   );

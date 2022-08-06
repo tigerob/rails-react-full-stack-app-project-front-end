@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useGlobalState } from "../utils/stateContext";
+import { deleteBooking } from "../services/bookingsServices";
+import { getBookings } from "../services/bookingsServices";
 
 const MyBookings = () => {
   const [bookings, setBookings] = useState([]);
@@ -23,23 +25,23 @@ const MyBookings = () => {
     mybookings = bookings;
   }
   const fetchData = async () => {
-    const response = await fetch(
-      "https://mia-music-studios-api.herokuapp.com/bookings",
-    );
-    const data = await response.json();
-    setBookings(data);
+    getBookings().then((data) => setBookings(data));
   };
 
   useEffect(() => {
     fetchData();
   }, []);
 
-  function deleteBooking(id) {
-    fetch(`https://mia-music-studios-api.herokuapp.com/bookings/${id}`, {
-      method: "DELETE",
-    });
-    setBookings(bookings.filter((booking) => booking.id !== id));
-  }
+  const handleDelete = async (id) => {
+    // eslint-disable-next-line
+    const response = await deleteBooking(id);
+    setShowResults(false);
+    fetchData();
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   function selectBooking(id) {
     const booking = bookings.find((booking) => booking.id === id);
@@ -71,6 +73,7 @@ const MyBookings = () => {
         <div>
           <h1 class="title">Your Bookings</h1>
         </div>
+        <div class="info"></div>
         {mybookings.length > 0 && (
           <table class="styled-table">
             <tr>
@@ -99,7 +102,7 @@ const MyBookings = () => {
                     </button>
                     <button
                       class="button"
-                      onClick={() => deleteBooking(booking.id)}
+                      onClick={() => handleDelete(booking.id)}
                     >
                       <p class="links">Delete</p>
                     </button>

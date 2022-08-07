@@ -6,11 +6,11 @@ https://mia-music-studios.netlify.app/
 
 ### GitHub repository (back end):
 
-https://github.com/Don-Heal/Mia_Music_Rails_Api
+https://github.com/tigerob/rails-react-full-stack-app-project-back-end
 
 ### GitHub repository (front end):
 
-https://github.com/Don-Heal/Mia_Music_React
+https://github.com/tigerob/rails-react-full-stack-app-project-front-end
 
 ## Documentation Presented For T3A2-A
 
